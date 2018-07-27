@@ -1,7 +1,17 @@
 #include "ft_printf.h"
+#include "libft.h"
+#include <stdio.h>
 
-//todo
 int		get_specifier_index(t_bundle *self)
 {
-	return (self->i + 1);
+	int		i;
+
+	i = 1;
+	while (self->format[self->i + i] && self->format[self->i + i] != '%')
+	{
+		if (ft_strchr(SPECIFIERS, self->format[self->i + i]))
+			return (self->i + i);
+		i++;
+	}
+	return (0);
 }

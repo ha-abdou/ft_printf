@@ -10,8 +10,7 @@ char	current_char(t_bundle *self)
 
 void	print(t_bundle *self, int start, int length)
 {
-	ft_putstr(ft_strsub(self->format, start, length));
-	self->printed_length += length;
+	self->printed_length += ft_myputstr(self->format, start, length);
 }
 
 void	debug_bundle(t_bundle *self)

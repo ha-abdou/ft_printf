@@ -17,4 +17,11 @@ void		init_handlers(t_bundle *self)
 {
 	self->handlers = 0;
 	handlers_push(self, 'd', &int_parser);
+	handlers_push(self, 'i', &int_parser);
+	handlers_push(self, 'u', &unsigned_int_parser);
+	handlers_push(self, 'x', &unsigned_int_parser);
+	handlers_push(self, 'X', &unsigned_int_parser);
+	handlers_push(self, 'o', &unsigned_int_parser);
+	handlers_push(self, 'b', &unsigned_int_parser);
+	handlers_push(self, 'p', &ptr_parser);
 }
