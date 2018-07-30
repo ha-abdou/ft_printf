@@ -32,7 +32,9 @@ COBJ = src/ft_printf.o src/bundle/init_bundle.o src/functions/throw.o src/handle
 		src/functions/ft_uimtoa_base.o\
 		src/functions/check_for_zero.o\
 		src/handlers/flags_handlers/hashtag_for_hexa.o\
-		src/handlers/specifier_handlers/ptr_parser.o
+		src/handlers/specifier_handlers/ptr_parser.o\
+		src/handlers/specifier_handlers/char_parser.o\
+		src/handlers/length_modifier_handlers/c_length_modifier_handler.o
 
 COBJ += $(LCOBJ)
 
