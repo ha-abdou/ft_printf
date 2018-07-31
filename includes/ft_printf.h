@@ -1,6 +1,6 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# define SPECIFIERS "diuXxobpc"
+# define SPECIFIERS "diuXxobpcs"
 
 #include <stdarg.h>
 #include <inttypes.h>
@@ -61,7 +61,8 @@ int					check_for_zero(t_sub_specifiers *sub_specifiers, char *str);
 char				*hashtag_for_hexa(t_sub_specifiers *sub_specifiers, char *str, int *i);
 void				ptr_parser(void *self);
 void				char_parser(void *self);
-int					c_length_modifier_handler(t_bundle *bundle, t_sub_specifiers *sub_specifiers);
+int					*char_length_modifier_handler(t_bundle *bundle, t_sub_specifiers *sub_specifiers);
+void				char_ptr_parser(void *self);
 
 
 /*todo functions in struct

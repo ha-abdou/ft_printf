@@ -3,17 +3,59 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <wchar.h>
 
-char		*char_flag_handler(t_sub_specifiers *sub_specifiers, char *str)
+static void		print_space(int i)
 {
-	if (ft_strchr(sub_specifiers->flag, '-') && sub_specifiers->width > 1)
-	{
-		str[0] = str[ft_strlen(str) - 1];
-		str[sub_specifiers->width - 1] = ' ';
-	}
-	return (str);
+	if (i > 0)
+		print_space(i - 1);
+	ft_putchar(' ');
 }
 
+void		char_parser(void *self)
+{
+	t_bundle			*bundle;
+	int					*str;
+	t_sub_specifiers	*sub_specifiers;
+	
+	bundle = (t_bundle *)self;
+	if ((sub_specifiers = get_sub_specifiers(bundle)))
+	{
+		str = char_length_modifier_handler(bundle, sub_specifiers);
+		if (sub_specifiers->width <= 1)
+			bundle->printed_length += ft_myputstr((char *)str, 0, 1);
+		else if (sub_specifiers->width > 1)
+		{
+			if (ft_strchr(sub_specifiers->flag, '-'))
+				ft_myputstr((char *)str, 0, 1);
+			print_space(sub_specifiers->width - 2);
+			if (!ft_strchr(sub_specifiers->flag, '-'))
+				ft_myputstr((char *)str, 0, 1);
+			bundle->printed_length += sub_specifiers->width;
+		}
+		bundle->i = bundle->last_specifier_index + 1;
+		free(str);
+		free(sub_specifiers->flag);
+		if (sub_specifiers->length)
+			free(sub_specifiers->length);
+		free(sub_specifiers);
+	}
+}
+/*
+		else if (ft_strchr(sub_specifiers->flag, '-') && sub_specifiers->width > len)
+		{
+			ft_myputstr((char *)str, 0, len);
+			bundle->printed_length += sub_specifiers->width;
+			print_space(sub_specifiers->width - len - 1);
+		}
+		else if (sub_specifiers->width > len)
+		{
+			print_space(sub_specifiers->width - len - 1);
+			ft_myputstr((char *)str, 0, len);
+			bundle->printed_length += sub_specifiers->width;
+		}
+*/
+/*
 void		char_parser(void *self)
 {
 	t_bundle			*bundle;
@@ -61,3 +103,4 @@ void		char_parser(void *self)
 		free(sub_specifiers);
 	}
 }
+*/

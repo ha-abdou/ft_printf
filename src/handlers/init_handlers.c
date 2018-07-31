@@ -25,4 +25,5 @@ void		init_handlers(t_bundle *self)
 	handlers_push(self, 'b', &unsigned_int_parser);
 	handlers_push(self, 'p', &ptr_parser);
 	handlers_push(self, 'c', &char_parser);
+	handlers_push(self, 's', &char_ptr_parser);
 }
