@@ -3,18 +3,18 @@
 #include "ft_printf.h"
 #include "libft.h" 
 
-char		*int_precision_handler(t_sub_specifiers *sub_specifiers, char *number)
+char		*int_precision_handler(t_bundle *bundle, char *number)
 {
 	int		i;
 	char	*str;
 	char	*tmp;
 
-	if (ft_strcmp(number, "0") == 0 && sub_specifiers->precision == 0)
+	if (ft_strcmp(number, "0") == 0 && bundle->sub_specifiers->precision == 0)
 	{
-		free(number);
-		return (ft_strnew(1));
+		number[0] = '\0';
+		return (number);
 	}
-	if ((i = sub_specifiers->precision - ft_strlen(number)) <= 0)
+	if ((i = bundle->sub_specifiers->precision - ft_strlen(number)) <= 0)
 		return (number);
 	if (number[0] == '-')
 		i++;

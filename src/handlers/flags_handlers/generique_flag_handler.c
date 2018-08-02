@@ -31,6 +31,7 @@ char		*handler_flag_zero(char *str)
 	}
 	return (str);
 }
+
 char		*handler_flag_minus(char *str, int i, int l)
 {	
 	int		n;
@@ -45,51 +46,51 @@ char		*handler_flag_minus(char *str, int i, int l)
 	return (str);
 }
 
-char		*handler_flag_hashtag(char *str, t_sub_specifiers *sub_specifiers, int *i)
+char		*handler_flag_hashtag(char *str, t_bundle *bundle, int *i)
 {
-	if (check_for_zero(sub_specifiers, str))
+	if (check_for_zero(bundle, str))
 		return (str);
-	if (sub_specifiers->specifier == 'f' && sub_specifiers->precision == 0)
+	if (bundle->sub_specifiers->specifier == 'f' && bundle->sub_specifiers->precision == 0)
 		return (ft_strjoin(str, "."));//todo
-	if (sub_specifiers->specifier == 'o')
+	if (bundle->sub_specifiers->specifier == 'o')
 	{
-		if (sub_specifiers->width > *i)
-			str[sub_specifiers->width - ((*i)++) - 1] = '0';
+		if (bundle->sub_specifiers->width > *i)
+			str[bundle->sub_specifiers->width - ((*i)++) - 1] = '0';
 		else
 			str = ft_strjoin("0", str);
 	}
-	else if (ft_strchr("xXp", sub_specifiers->specifier))
-		str = hashtag_for_hexa(sub_specifiers, str, i);
+	else if (ft_strchr("xXp", bundle->sub_specifiers->specifier))
+		str = hashtag_for_hexa(bundle, str, i);
 	return (str);
 }
 
-char		*generique_flag_handler(t_sub_specifiers *sub_specifiers, char *str, int i)
+char		*generique_flag_handler(t_bundle *bundle, char *str, int i)
 {
 	char	*tmp;
-	if (ft_strchr(sub_specifiers->flag, '#')/* || sub_specifiers->specifier == 'p'*/)
-		str = handler_flag_hashtag(str, sub_specifiers, &i);
-	if (ft_strchr(sub_specifiers->flag, '+'))
+	if (ft_strchr(bundle->sub_specifiers->flag, '#')/* || sub_specifiers->specifier == 'p'*/)
+		str = handler_flag_hashtag(str, bundle, &i);
+	if (ft_strchr(bundle->sub_specifiers->flag, '+'))
 	{
-		if (sub_specifiers->width <= i && str[0] != '-')
+		if (bundle->sub_specifiers->width <= i && str[0] != '-')
 		{
 			tmp = str;
 			str = ft_strjoin("+", str);
 			free(tmp);
 			i++;
 		}
-		else if (sub_specifiers->width && str[sub_specifiers->width - i] != '-')
-			str[sub_specifiers->width - (i++) - 1] = '+';
+		else if (bundle->sub_specifiers->width && str[bundle->sub_specifiers->width - i] != '-')
+			str[bundle->sub_specifiers->width - (i++) - 1] = '+';
 	}
-	else if (ft_strchr(sub_specifiers->flag, ' ')
-		&& str[0] != '-' && sub_specifiers->width <= i)
+	else if (ft_strchr(bundle->sub_specifiers->flag, ' ')
+		&& str[0] != '-' && bundle->sub_specifiers->width <= i)
 	{
 		tmp = str;
-		str = ft_strchr(sub_specifiers->flag, '+') ? str : ft_strjoin(" ", str);
+		str = ft_strchr(bundle->sub_specifiers->flag, '+') ? str : ft_strjoin(" ", str);
 		free(tmp);
 	}
-	if (ft_strchr(sub_specifiers->flag, '-') &&  sub_specifiers->width - i >= 0)
-		str = handler_flag_minus(str , i, sub_specifiers->width - i);
-	if (ft_strchr(sub_specifiers->flag, '0') && sub_specifiers->precision < 0)
+	if (ft_strchr(bundle->sub_specifiers->flag, '-') && bundle->sub_specifiers->width - i >= 0)
+		str = handler_flag_minus(str , i, bundle->sub_specifiers->width - i);
+	if (ft_strchr(bundle->sub_specifiers->flag, '0') && bundle->sub_specifiers->precision < 0)
 		str = handler_flag_zero(str);
 	return (str);
 }

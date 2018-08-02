@@ -49,9 +49,11 @@ all: $(NAME)
 	$(CC) $(FLAGS) -c -o $@ $<
 
 clean:
+	/bin/rm -f *.o
 	/bin/rm -f */*.o
 	/bin/rm -f */*/*.o
 	/bin/rm -f */*/*/*.o
+	/bin/rm -f */*/*/*/*.o
 
 fclean: clean
 	/bin/rm -f $(NAME)

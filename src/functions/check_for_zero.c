@@ -3,11 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int		check_for_zero(t_sub_specifiers *sub_specifiers, char *str)
+int		check_for_zero(t_bundle *bundle, char *str)
 {
 	int		n;
 
-	if (ft_strchr("xXo", sub_specifiers->specifier))
+	if (ft_strchr("xXo", bundle->sub_specifiers->specifier))
 	{
 		n = 0;
 		while (str[n] == ' ')

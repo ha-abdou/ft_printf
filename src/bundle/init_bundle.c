@@ -26,7 +26,6 @@ t_bundle    *init_bundle(const char *format, va_list var_list)
 {
     t_bundle	*bundle;
 
-    //todo check meme error and free
     if (!(bundle = (t_bundle *)malloc(sizeof(t_bundle))))
     	throw("mem error", EXIT_FAILURE);
     bundle->i = 0;
@@ -37,6 +36,9 @@ t_bundle    *init_bundle(const char *format, va_list var_list)
     bundle->current_char = &current_char;
     bundle->print = &print;
     bundle->format_handler = &format_handler;
+    bundle->sub_specifiers = (t_sub_specifiers *)malloc(sizeof(t_sub_specifiers));
+    bundle->sub_specifiers->flag = ft_strnew(5);
+    bundle->sub_specifiers->length = ft_strnew(2);
     init_handlers(bundle);
     return (bundle);
 }

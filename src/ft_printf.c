@@ -10,6 +10,15 @@ void    free_handlers(t_handlers *handlers)
     free(handlers);
 }
 
+void    free_bundle(t_bundle *bundle)
+{
+    free(bundle->sub_specifiers->flag);
+    free(bundle->sub_specifiers->length);
+    free(bundle->sub_specifiers);
+    free_handlers(bundle->handlers);
+    free(bundle);
+}
+
 int     ft_printf(const char *format, ...)
 {
     t_bundle    *bundle;
@@ -35,7 +44,6 @@ int     ft_printf(const char *format, ...)
         bundle->print(bundle, i, bundle->i - i);
     va_end(var_list);
     len = bundle->printed_length;
-    free_handlers(bundle->handlers);
-    free(bundle);
+    free_bundle(bundle);
     return (len);
 }

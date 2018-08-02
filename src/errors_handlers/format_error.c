@@ -5,28 +5,28 @@
 //todo myputnbr
 
 
-void		format_error(t_bundle *bundle, int i, t_sub_specifiers *sub_specifiers)
+void		format_error(t_bundle *bundle, int i)
 {
 	ft_putstr("%");
 	bundle->printed_length++;
-	if (ft_strchr(sub_specifiers->flag, '#'))
+	if (ft_strchr(bundle->sub_specifiers->flag, '#'))
 		bundle->printed_length += ft_myputstr("#", 0, 1);
-	if (ft_strchr(sub_specifiers->flag, '+'))
+	if (ft_strchr(bundle->sub_specifiers->flag, '+'))
 		bundle->printed_length += ft_myputstr("+", 0, 1);
-	else if (ft_strchr(sub_specifiers->flag, ' '))
+	else if (ft_strchr(bundle->sub_specifiers->flag, ' '))
 		bundle->printed_length += ft_myputstr(" ", 0, 1);
-	if (ft_strchr(sub_specifiers->flag, '-'))
+	if (ft_strchr(bundle->sub_specifiers->flag, '-'))
 		bundle->printed_length += ft_myputstr("-", 0, 1);
-	else if (ft_strchr(sub_specifiers->flag, '0'))
+	else if (ft_strchr(bundle->sub_specifiers->flag, '0'))
 		bundle->printed_length += ft_myputstr("0", 0, 1);
-	if (sub_specifiers->width != 0)
-		bundle->printed_length += ft_myputnbr(sub_specifiers->width);
-	if (sub_specifiers->precision >= 0)
+	if (bundle->sub_specifiers->width != 0)
+		bundle->printed_length += ft_myputnbr(bundle->sub_specifiers->width);
+	if (bundle->sub_specifiers->precision >= 0)
 	{
 		ft_putstr(".");
-		bundle->printed_length += ft_myputnbr(sub_specifiers->precision) + 1;
+		bundle->printed_length += ft_myputnbr(bundle->sub_specifiers->precision) + 1;
 	}
-	if (sub_specifiers->length)
-		bundle->printed_length += ft_myputstr(sub_specifiers->length, 0, ft_strlen(sub_specifiers->length));
+	if (bundle->sub_specifiers->length)
+		bundle->printed_length += ft_myputstr(bundle->sub_specifiers->length, 0, ft_strlen(bundle->sub_specifiers->length));
 	bundle->i = i;
 }

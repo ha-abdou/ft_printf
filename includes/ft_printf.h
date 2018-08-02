@@ -34,6 +34,7 @@ typedef struct s_bundle
 	void				(*print)(struct s_bundle *self, int start, int length);
 	void				(*format_handler)(struct s_bundle *self);
 	t_handlers			*handlers;
+	t_sub_specifiers	*sub_specifiers;
 } t_bundle;
 
 void				debug_bundle(t_bundle *self);/*todo remove*/
@@ -45,36 +46,23 @@ void				init_handlers(t_bundle *self);
 void				format_handler(t_bundle *self);
 void				int_parser(void *self);
 void				specifier_error(t_bundle *bundel);
-t_sub_specifiers	*get_sub_specifiers(t_bundle *bundle);
+int					get_sub_specifiers(t_bundle *bundle);
 int					ft_myputstr(const char *s, int start, int len);
-void				format_error(t_bundle *bundle, int i, t_sub_specifiers *sub_specifiers);
+void				format_error(t_bundle *bundle, int i);
 int					ft_myputnbr(int n);
-char				*int_length_modifier_handler(t_bundle *bundle, t_sub_specifiers *sub_specifiers);
+char				*int_length_modifier_handler(t_bundle *bundle);
 char				*ft_imtoa(intmax_t n);
-char				*int_precision_handler(t_sub_specifiers *sub_specifiers, char *number);
-char				*width_handler(t_sub_specifiers *sub_specifiers, char *str);
-char				*generique_flag_handler(t_sub_specifiers *sub_specifiers, char *str, int i);
+char				*int_precision_handler(t_bundle *bundle, char *number);
+char				*width_handler(t_bundle *bundle, char *str);
+char				*generique_flag_handler(t_bundle *bundle, char *str, int i);
 void				unsigned_int_parser(void *self);
-char				*unsigned_int_length_handler(t_bundle *bundle, t_sub_specifiers *sub_specifiers);
+char				*unsigned_int_length_handler(t_bundle *bundle);
 char				*ft_uimtoa_base(uintmax_t n, int b, int up);
-int					check_for_zero(t_sub_specifiers *sub_specifiers, char *str);
-char				*hashtag_for_hexa(t_sub_specifiers *sub_specifiers, char *str, int *i);
+int					check_for_zero(t_bundle *bundle, char *str);
+char				*hashtag_for_hexa(t_bundle *bundle, char *str, int *i);
 void				ptr_parser(void *self);
 void				char_parser(void *self);
-int					*char_length_modifier_handler(t_bundle *bundle, t_sub_specifiers *sub_specifiers);
+int					*char_length_modifier_handler(t_bundle *bundle);
 void				char_ptr_parser(void *self);
 
-
-/*todo functions in struct
-typedef struct s_bundle
-{
-	const char	*format;
-	int			i;
-	char		(current_char)(void *self);
-	void		(print)(void self);
-	void		(format_handler)(void *self);
-	int			printed_length;
-	va_list		var_list;
-}	t_bundle;
-*/
 #endif
