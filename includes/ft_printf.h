@@ -1,6 +1,6 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# define SPECIFIERS "diuXxobpcs"
+# define SPECIFIERS "diuXxobpcs%"
 
 #include <stdarg.h>
 #include <inttypes.h>
@@ -28,7 +28,7 @@ typedef struct s_bundle
 	int					format_length;
 	int					printed_length;
 	int					last_specifier_index;
-	va_list				var_list;
+	va_list				*var_list;
 	char				**specifier;
 	char				(*current_char)(struct s_bundle *self);
 	void				(*print)(struct s_bundle *self, int start, int length);
@@ -38,9 +38,9 @@ typedef struct s_bundle
 } t_bundle;
 
 void				debug_bundle(t_bundle *self);/*todo remove*/
-t_bundle			*init_bundle(const char *format, va_list var_list);
+t_bundle			*init_bundle(const char *format, va_list *var_list);
 void				throw(char *msg, int code);
-int     			ft_printf(const char *format, ...);
+int					ft_printf(const char *format, ...);
 int					get_specifier_index(t_bundle *self);
 void				init_handlers(t_bundle *self);
 void				format_handler(t_bundle *self);
@@ -62,7 +62,12 @@ int					check_for_zero(t_bundle *bundle, char *str);
 char				*hashtag_for_hexa(t_bundle *bundle, char *str, int *i);
 void				ptr_parser(void *self);
 void				char_parser(void *self);
+void				percentage_parser(void *self);
 int					*char_length_modifier_handler(t_bundle *bundle);
 void				char_ptr_parser(void *self);
+char				*handler_flag_plus(t_bundle *bundle, char *str, int *i);
+char				*handler_flag_zero(char *str);
+char				*handler_flag_minus(char *str, int i, int l);
+char				*handler_flag_hashtag(char *str, t_bundle *bundle, int *i);
 
 #endif

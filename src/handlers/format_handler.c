@@ -22,6 +22,7 @@ void	format_handler(t_bundle *self)
 			if (get_sub_specifiers(self))
 			{
 				handlers->parser((void *)self);
+				self->i = self->last_specifier_index + 1;
 				return ;
 			}
 		}

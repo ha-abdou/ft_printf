@@ -25,9 +25,9 @@ int     ft_printf(const char *format, ...)
     va_list     var_list;
     int         i;
     int         len;
-    
+
     va_start(var_list, format);
-    bundle = init_bundle(format, var_list);
+    bundle = init_bundle(format, &var_list);
     i = bundle->i;
     while (bundle->current_char(bundle))
     {

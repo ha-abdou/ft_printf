@@ -20,19 +20,16 @@ void		char_ptr_parser(void *self)
 
 	bundle = (t_bundle *)self;
 	str = char_length_modifier_handler(bundle);
-	len  = 0;
+	len = 6;
 	if (!str && (bundle->sub_specifiers->precision > 5 || bundle->sub_specifiers->precision == -1))
-	{
-		len = 6;
 		str = (int*)ft_strcpy(ft_strnew(6), "(null)");
-	}
 	else if (!str && bundle->sub_specifiers->precision < 5)
 		len = 0;
-	else if (str && (len = ft_strlen((char *)str)) > bundle->sub_specifiers->precision && bundle->sub_specifiers->precision != -1)
+	else if (str && (len = ft_strlen((char *)str)) > bundle->sub_specifiers->precision && bundle->sub_specifiers->precision >= 0)
 		len = bundle->sub_specifiers->precision;
 	if (bundle->sub_specifiers->width <= len)
 		bundle->printed_length += ft_myputstr((char *)str, 0, len);
-	else if (bundle->sub_specifiers->width > len)
+	else
 	{
 		if (ft_strchr(bundle->sub_specifiers->flag, '-'))
 			ft_myputstr((char *)str, 0, len);
@@ -41,7 +38,5 @@ void		char_ptr_parser(void *self)
 			ft_myputstr((char *)str, 0, len);
 		bundle->printed_length += bundle->sub_specifiers->width;
 	}
-	//ft_myputstr((char *)str, 0, len);
-	bundle->i = bundle->last_specifier_index + 1;
-	//free(str);
+	free(str);
 }

@@ -7,7 +7,7 @@ int		ft_myputstr(const char *s, int start, int len)
 {
 	if (s && len)
 	{
-		write(0, s + start, len);
+		write(1, s + start, len);
 		return (len);
 	}
 	return (0);

@@ -22,7 +22,7 @@ void	debug_bundle(t_bundle *self)
 	printf("*----------*\n");
 }
 
-t_bundle    *init_bundle(const char *format, va_list var_list)
+t_bundle    *init_bundle(const char *format, va_list *var_list)
 {
     t_bundle	*bundle;
 

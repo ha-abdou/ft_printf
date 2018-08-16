@@ -31,6 +31,5 @@ void		char_parser(void *self)
 			ft_myputstr((char *)str, 0, 1);
 		bundle->printed_length += bundle->sub_specifiers->width;
 	}
-	bundle->i = bundle->last_specifier_index + 1;
 	free(str);
 }

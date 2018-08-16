@@ -31,6 +31,5 @@ void		unsigned_int_parser(void *self)
 	bundle->sub_specifiers->flag = remove_flags(bundle->sub_specifiers->flag);
 	number = generique_flag_handler(bundle, number, i);
 	bundle->printed_length += ft_myputstr(number, 0, ft_strlen(number));
-	bundle->i = bundle->last_specifier_index + 1;
 	free(number);
 }

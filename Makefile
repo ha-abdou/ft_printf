@@ -35,7 +35,13 @@ COBJ = src/ft_printf.o src/bundle/init_bundle.o src/functions/throw.o src/handle
 		src/handlers/specifier_handlers/ptr_parser.o\
 		src/handlers/specifier_handlers/char_parser.o\
 		src/handlers/specifier_handlers/char_ptr_parser.o\
-		src/handlers/length_modifier_handlers/char_length_modifier_handler.o
+		src/handlers/length_modifier_handlers/char_length_modifier_handler.o\
+		src/handlers/flags_handlers/handler_flag_zero.o\
+		src/handlers/flags_handlers/handler_flag_minus.o\
+		src/handlers/flags_handlers/handler_flag_hashtag.o\
+		src/handlers/flags_handlers/handler_flag_plus.o\
+		src/handlers/specifier_handlers/percentage_parser.o
+
 
 COBJ += $(LCOBJ)
 
@@ -72,8 +78,8 @@ mytest: $(NAME)
 	./run
 
 mytestleaks: $(NAME)
-	$(CC) $(FLAGS) -c test/test_leaks.c
-	$(CC) -o run test_int_main.o libftprintf.a
+	$(CC) $(FLAGS) -c test/mytest/main.c
+	$(CC) -o run main.o libftprintf.a
 	valgrind --leak-check=full --track-origins=yes ./run
 
 minitestleaks: $(NAME)

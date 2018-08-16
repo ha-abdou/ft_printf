@@ -6,12 +6,17 @@
 char	*hashtag_for_hexa(t_bundle *bundle, char *str, int *i)
 {
 	int		l;
+	char	*tmp;
+	char	*tmp2;
 
 	l = ft_strlen(str);
 	if (l < *i + 2)
 	{
-		str = ft_strjoin((char *)
-			ft_memset(ft_strnew(*i - l + 2), ' ', *i - l + 2), str);
+		tmp = (char *)ft_memset(ft_strnew(*i - l + 2), ' ', *i - l + 2);
+		tmp2 = ft_strjoin(tmp, str);
+		free(tmp);
+		free(str);
+		str = tmp2;
 		str[0] = '0'; 
 		str[1] = bundle->sub_specifiers->specifier == 'X' ? 'X' :'x';
 	}
