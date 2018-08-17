@@ -4,19 +4,20 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <wchar.h>
-
+/*
 static void		print_space(int i)
 {
 	if (i > 0)
 		print_space(i - 1);
 	ft_putchar(' ');
 }
-
+*/
 void		char_ptr_parser(void *self)
 {
 	t_bundle			*bundle;
 	int					*str;
 	int					len;
+	char				*tmp;
 
 	bundle = (t_bundle *)self;
 	str = char_length_modifier_handler(bundle);
@@ -28,15 +29,19 @@ void		char_ptr_parser(void *self)
 	else if (str && (len = ft_strlen((char *)str)) > bundle->sub_specifiers->precision && bundle->sub_specifiers->precision >= 0)
 		len = bundle->sub_specifiers->precision;
 	if (bundle->sub_specifiers->width <= len)
-		bundle->printed_length += ft_myputstr((char *)str, 0, len);
+		wchar_print(bundle, str, len);
 	else
 	{
 		if (ft_strchr(bundle->sub_specifiers->flag, '-'))
-			ft_myputstr((char *)str, 0, len);
-		print_space(bundle->sub_specifiers->width - len - 1);
+			wchar_print(bundle, str, len);
+		if (bundle->sub_specifiers->width > len)
+		{
+			tmp = ft_strnew(bundle->sub_specifiers->width);
+			ft_memset((void*)tmp, ' ', bundle->sub_specifiers->width - len);
+			bundle->cpy2buffer(bundle, tmp, ft_strlen(tmp));
+		}
 		if (!ft_strchr(bundle->sub_specifiers->flag, '-'))
-			ft_myputstr((char *)str, 0, len);
-		bundle->printed_length += bundle->sub_specifiers->width;
+			wchar_print(bundle, str, len);
 	}
 	free(str);
 }

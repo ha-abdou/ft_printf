@@ -21,7 +21,7 @@ LCOBJ = src/libft/ft_strlen.o src/libft/ft_tolower.o src/libft/ft_toupper.o src/
 
 COBJ = src/ft_printf.o src/bundle/init_bundle.o src/functions/throw.o src/handlers/format_handler.o src/functions/get_specifier_index.o\
 		src/handlers/init_handlers.o src/handlers/specifier_handlers/int_parser.o src/errors_handlers/specifier_error.o src/functions/get_sub_specifiers.o\
-		src/errors_handlers/format_error.o src/functions/ft_myputstr.o src/functions/ft_myputnbr.o\
+		src/errors_handlers/format_error.o src/functions/ft_myputnbr.o\
 		src/handlers/length_modifier_handlers/int_length_modifier_handler.o\
 		src/functions/ft_imtoa.o\
 		src/handlers/precision_handlers/int_precision_handler.o\
@@ -40,7 +40,8 @@ COBJ = src/ft_printf.o src/bundle/init_bundle.o src/functions/throw.o src/handle
 		src/handlers/flags_handlers/handler_flag_minus.o\
 		src/handlers/flags_handlers/handler_flag_hashtag.o\
 		src/handlers/flags_handlers/handler_flag_plus.o\
-		src/handlers/specifier_handlers/percentage_parser.o
+		src/handlers/specifier_handlers/percentage_parser.o\
+		src/functions/wchar_print.o
 
 
 COBJ += $(LCOBJ)
@@ -71,6 +72,10 @@ minitest: $(NAME)
 	$(CC) -o run test_main.o libftprintf.a
 	./run
 
+curqui_test: $(NAME)
+	mv $(NAME) test/curqui_test
+	make -C test/curqui_test
+	./ft_printf_tests
 
 mytest: $(NAME)
 	$(CC) $(FLAGS) -c test/mytest/main.c

@@ -1,0 +1,14 @@
+print_test("simple string"); print_ret(PRINTF_MACRO("simple string"));
+print_test("number:%d_____"); print_ret(PRINTF_MACRO("number:%d_____", 15));
+print_test("number:%d"); print_ret(PRINTF_MACRO("number:%d", 15));
+print_test("%dnumber"); print_ret(PRINTF_MACRO("%dnumber", 15));
+print_test("specifier_error%r"); print_ret(PRINTF_MACRO("specifier_error%r"));
+print_test("%rspecifier_error"); print_ret(PRINTF_MACRO("%rspecifier_error"));
+print_test("specifier%r_error"); print_ret(PRINTF_MACRO("specifier%r_error"));
+print_test("%dspecifier_error%r"); print_ret(PRINTF_MACRO("%dspecifier_error%r",15));
+print_test("%rspecifier%d_error"); print_ret(PRINTF_MACRO("%rspecifier%d_error",15));
+print_test("%dspecifier_error%15r"); print_ret(PRINTF_MACRO("%dspecifier_error%15r",15));
+print_test("%15rspecifier%d_error"); print_ret(PRINTF_MACRO("%15rspecifier%d_error",15));
+print_test("%dspecifier%15r_error"); print_ret(PRINTF_MACRO("%dspecifier%15r_error",15));
+print_test("%d%d%d%d"); print_ret(PRINTF_MACRO("%d%d%d%d",15,15,15,15));
+print_test("%...d"); print_ret(PRINTF_MACRO("%...d",15));

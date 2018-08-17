@@ -30,6 +30,6 @@ void		unsigned_int_parser(void *self)
 	number = width_handler(bundle, number);
 	bundle->sub_specifiers->flag = remove_flags(bundle->sub_specifiers->flag);
 	number = generique_flag_handler(bundle, number, i);
-	bundle->printed_length += ft_myputstr(number, 0, ft_strlen(number));
+	bundle->cpy2buffer(bundle, number, ft_strlen(number));
 	free(number);
 }

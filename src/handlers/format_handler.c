@@ -13,6 +13,8 @@ void	format_handler(t_bundle *self)
 		specifier_error(self);
 		return ;
 	}
+    
+
 	while (handlers)
 	{
 		if (handlers->specifier == self->format[self->last_specifier_index])

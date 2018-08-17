@@ -15,6 +15,6 @@ void		int_parser(void *self)
 	i = ft_strlen(number);
 	number = width_handler(bundle, number);
 	number = generique_flag_handler(bundle, number, i);
-	bundle->printed_length += ft_myputstr(number, 0, ft_strlen(number));
+	bundle->cpy2buffer(bundle, number, ft_strlen(number));
 	free(number);
 }

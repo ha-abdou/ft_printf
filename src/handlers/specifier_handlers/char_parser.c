@@ -5,31 +5,28 @@
 #include <unistd.h>
 #include <wchar.h>
 
-static void		print_space(int i)
-{
-	if (i > 0)
-		print_space(i - 1);
-	ft_putchar(' ');
-}
-
 void		char_parser(void *self)
 {
 	t_bundle			*bundle;
 	int					*str;
-	
-	bundle = (t_bundle *)self;
+	char				*tmp;
 
+	bundle = (t_bundle *)self;
 	str = char_length_modifier_handler(bundle);
 	if (bundle->sub_specifiers->width <= 1)
-		bundle->printed_length += ft_myputstr((char *)str, 0, 1);
+		wchar_print(bundle, str, 1);
 	else if (bundle->sub_specifiers->width > 1)
 	{
 		if (ft_strchr(bundle->sub_specifiers->flag, '-'))
-			ft_myputstr((char *)str, 0, 1);
-		print_space(bundle->sub_specifiers->width - 2);
+			wchar_print(bundle, str, 1);
+		if (bundle->sub_specifiers->width > 1)
+		{
+			tmp = ft_strnew(bundle->sub_specifiers->width);
+			ft_memset((void*)tmp, ' ', bundle->sub_specifiers->width - 1);
+			bundle->cpy2buffer(bundle, tmp, ft_strlen(tmp));
+		}
 		if (!ft_strchr(bundle->sub_specifiers->flag, '-'))
-			ft_myputstr((char *)str, 0, 1);
-		bundle->printed_length += bundle->sub_specifiers->width;
+			wchar_print(bundle, str, 1);
 	}
 	free(str);
 }

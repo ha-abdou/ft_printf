@@ -1,0 +1,14 @@
+simple string : simple string 13
+number:%d_____ : number:15_____ 14
+number:%d : number:15 9
+%dnumber : 15number 8
+specifier_error%r : specifier_error%r 17
+%rspecifier_error : %rspecifier_error 17
+specifier%r_error : specifier%r_error 17
+%dspecifier_error%r : 15specifier_error%r 19
+%rspecifier%d_error : %rspecifier15_error 19
+%dspecifier_error%15r : 15specifier_error%15r 21
+%15rspecifier%d_error : %15rspecifier15_error 21
+%dspecifier%15r_error : 15specifier%15r_error 21
+%d%d%d%d : 15151515 8
+%...d : %.0..d 6

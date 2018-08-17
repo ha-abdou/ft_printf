@@ -5,7 +5,6 @@ void	handlers_push(t_bundle *self, char specifier, void (*parser)(void *))
 {
 	t_handlers	*tmp;
 
-	//todo free the mem
 	tmp = (t_handlers *)malloc(sizeof(t_handlers));
 	tmp->specifier = specifier;
 	tmp->parser = *parser;

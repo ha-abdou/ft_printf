@@ -4,7 +4,7 @@
 
 #include <stdarg.h>
 #include <inttypes.h>
-
+#define BUFFERSIZE 50
 typedef struct s_sub_specifiers
 {
 	char	*flag;
@@ -24,6 +24,8 @@ typedef struct s_handlers
 typedef struct s_bundle
 {
 	const char			*format;
+	char				*buffer;
+	int					buffer_length;
 	int					i;
 	int					format_length;
 	int					printed_length;
@@ -31,7 +33,8 @@ typedef struct s_bundle
 	va_list				*var_list;
 	char				**specifier;
 	char				(*current_char)(struct s_bundle *self);
-	void				(*print)(struct s_bundle *self, int start, int length);
+	void				(*print_buffer)(struct s_bundle *self);
+	void				(*cpy2buffer)(struct s_bundle *self, char *str, int len);
 	void				(*format_handler)(struct s_bundle *self);
 	t_handlers			*handlers;
 	t_sub_specifiers	*sub_specifiers;
@@ -47,7 +50,6 @@ void				format_handler(t_bundle *self);
 void				int_parser(void *self);
 void				specifier_error(t_bundle *bundel);
 int					get_sub_specifiers(t_bundle *bundle);
-int					ft_myputstr(const char *s, int start, int len);
 void				format_error(t_bundle *bundle, int i);
 int					ft_myputnbr(int n);
 char				*int_length_modifier_handler(t_bundle *bundle);
@@ -69,5 +71,6 @@ char				*handler_flag_plus(t_bundle *bundle, char *str, int *i);
 char				*handler_flag_zero(char *str);
 char				*handler_flag_minus(char *str, int i, int l);
 char				*handler_flag_hashtag(char *str, t_bundle *bundle, int *i);
+void				wchar_print(t_bundle *bundle, int *str, int len);
 
 #endif
