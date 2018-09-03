@@ -1,5 +1,5 @@
 
-	   if (printf("%d\n", 2147483647) !=
+	/*   if (printf("%d\n", 2147483647) !=
 	ft_printf("%d\n", 2147483647))
 	   	printf("no match:\n");
 	printf("\n");
@@ -7,8 +7,8 @@
 	   if (printf("%d\n", 2147483648) !=
 	ft_printf("%d\n", 2147483648))
 	   	printf("no match:\n");
-	printf("\n");
-
+	printf("\n");*/
+/*
 	   if (printf("hh127,%hhd\n", 127) !=
 	ft_printf("hh127,%hhd\n", 127))
 	   	printf("no match:\n");
@@ -62,8 +62,8 @@
 	if (printf("z65536,%zd\n", 65536) !=
 	ft_printf("z65536,%zd\n", 65536))
 	   	printf("no match:\n");
-	printf("\n");
-
+	printf("\n");*/
+/*
 	if (printf(".010,%.0d\n", 10) !=
 	ft_printf(".010,%.0d\n", 10))
 	   	printf("no match:\n");
@@ -74,8 +74,13 @@
 	   	printf("no match:\n");
 	printf("\n");
 
-		if (printf(".-1010,%.-10d\n", 10) !=
-	ft_printf(".-1010,%.-10d\n", 10))
+   if (printf(".-1010,%-10d*\n", 10) !=
+	ft_printf(".-1010,%-10d*\n", 10))
+	   	printf("no match:\n");
+	printf("\n");
+
+   if (printf(".-1010,%-10d*\n", 10) !=
+	ft_printf(".-1010,%-10d*\n", 10))
 	   	printf("no match:\n");
 	printf("\n");
 
@@ -105,8 +110,30 @@
 	   	printf("no match:\n");
 	printf("\n");
 
-		if (printf(".-100,%.-10d\n", 0) !=
-	ft_printf(".-100,%.-10d\n", 0))
+
+
+		if (printf(".-100,%.0d*\n", 0) !=
+	ft_printf(".-100,%.0d*\n", 0))
+	   	printf("no match:\n");
+	printf("\n");
+
+		if (printf("%.0-10.-20d*\n", 10,20,30) !=
+	ft_printf("%.0-10.-20d*\n", 10,20,30))
+	   	printf("no match:\n");
+	printf("\n");
+
+		if (printf(".-100,%.-10d*\n", 0) !=
+	ft_printf(".-100,%.-10d*\n", 0))
+	   	printf("no match:\n");
+	printf("\n");
+
+		if (printf(".-100,%.-10d*\n", -1) !=
+	ft_printf(".-100,%.-10d*\n", -1))
+	   	printf("no match:\n");
+	printf("\n");
+
+		if (printf(".-100,%.*d*\n" , -10, 1) !=
+	ft_printf(".-100,%.*d*\n", -10, 1))
 	   	printf("no match:\n");
 	printf("\n");
 
@@ -175,12 +202,12 @@
 	   	printf("no match:\n");
 	printf("\n");
 
-
+*/
 		if (printf("#,%#d--\n", 10) !=
 	ft_printf("#,%#d--\n", 10))
 	   	printf("no match:\n");
 	printf("\n");
-
+/*
 		if (printf("#,%#d--\n", -10) !=
 	ft_printf("#,%#d--\n", -10))
 	   	printf("no match:\n");
@@ -205,8 +232,8 @@
 		if (printf("-,%-d--\n", 0) !=
 	ft_printf("-,%-d--\n", 0))
 	   	printf("no match:\n");
-	printf("\n");
-
+	printf("\n");*/
+/*
 
 		if (printf("+,%+d--\n", 10) !=
 	ft_printf("+,%+d--\n", 10))
@@ -598,3 +625,5 @@
 	ft_printf("-20.0,%-20.0d--\n", 0))
 	   	printf("no match:\n");
 	printf("\n");
+
+	*/

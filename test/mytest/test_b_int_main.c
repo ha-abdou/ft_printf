@@ -13,7 +13,7 @@
 	ft_printf("%b\n", 0))
 	   	ft_printf("no match:\n");
 	ft_printf("\n");
-
+/*
 		if (ft_printf("%b\n", -1) !=
 	ft_printf("%b\n", -1))
 	   	ft_printf("no match:\n");
@@ -615,3 +615,5 @@
 	ft_printf("-20.0,%-20.0b--\n", 0))
 	   	ft_printf("no match:\n");
 	ft_printf("\n");
+
+	*/

@@ -1,10 +1,11 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # define SPECIFIERS "diuXxobpcs%"
+# define FLAGS " -+#0"
 
 #include <stdarg.h>
 #include <inttypes.h>
-#define BUFFERSIZE 50
+#define BUFFERSIZE 128
 typedef struct s_sub_specifiers
 {
 	char	*flag;

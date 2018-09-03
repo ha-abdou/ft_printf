@@ -15,7 +15,8 @@ int main()
 	ft_printf("%#-10.20%\n");
 */
 //	#include "./test_somme_errors.c"
-//	#include "./test_d_int_main.c"
+
+	#include "./test_d_int_main.c"
 //	#include "./test_i_int_main.c"
 //	#include "./test_u_int_main.c"
 //	#include "./test_x_int_main.c"
