@@ -31,7 +31,7 @@ int     ft_printf(const char *format, ...)
     bundle = init_bundle(format, &var_list);
     i = bundle->i;
     while (bundle->current_char(bundle))
-    {        
+    {
         if (bundle->current_char(bundle) != '%')
             bundle->i++;
         else
@@ -39,8 +39,11 @@ int     ft_printf(const char *format, ...)
             bundle->cpy2buffer(bundle, (char *)bundle->format + i, bundle->i - i);
             bundle->format_handler(bundle);
             i = bundle->i;
+
         }
+
     }
+
     if (i != bundle->i)
         bundle->cpy2buffer(bundle, (char *)bundle->format + i, bundle->i - i);
     va_end(var_list);

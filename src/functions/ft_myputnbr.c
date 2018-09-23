@@ -11,6 +11,7 @@ static void	ft_putn(int n, int *len)
 int			ft_myputnbr(int n)
 {
 	int		len;
+//            printf("--->\n");
 
 	len = 0;
 	if (n == 2147483647)

@@ -6,7 +6,7 @@
 char		*generique_flag_handler(t_bundle *bundle, char *str, int i)
 {
 	char	*tmp;
-	printf("---->%c\n", bundle->sub_specifiers->specifier );
+//	printf("---->%c\n", bundle->sub_specifiers->specifier );
 	if (ft_strchr(bundle->sub_specifiers->flag, '#') && bundle->sub_specifiers->specifier != 'i' && bundle->sub_specifiers->specifier != 'd'/* || sub_specifiers->specifier == 'p'*/)
 		str = handler_flag_hashtag(str, bundle, &i);
 	if (ft_strchr(bundle->sub_specifiers->flag, '+'))

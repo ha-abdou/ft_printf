@@ -1,4 +1,11 @@
 
+
+   if (printf("@moulitest: %#.x %#.0x\n", 0, 0) !=
+	ft_printf("@moulitest: %#.x %#.0x\n", 0, 0))
+	   	printf("no match:\n");
+	printf("\n");
+
+
 	   if (printf("%x\n", 2147483647) !=
 	ft_printf("%x\n", 2147483647))
 	   	printf("no match:\n");
@@ -44,10 +51,10 @@
 	   	printf("no match:\n");
 	printf("\n");
 
-//	if (printf("ll9223372036854775808,%llx\n", 9223372036854775808) !=
-//	ft_printf("ll9223372036854775808,%llx\n", 9223372036854775808))
-//	   	printf("no match:\n");
-//	printf("\n");
+	if (printf("ll9223372036854775808,%llx\n", 9223372036854775808) !=
+	ft_printf("ll9223372036854775808,%llx\n", 9223372036854775808))
+	   	printf("no match:\n");
+	printf("\n");
 
 		if (printf("ll-9223372036854775807,%llx\n", -9223372036854775807) !=
 	ft_printf("ll-9223372036854775807,%llx\n", -9223372036854775807))
@@ -176,17 +183,17 @@
 	printf("\n");
 
 
-		if (printf("#,%#x--\n", 10) !=
+   if (printf("#,%#x--\n", 10) !=
 	ft_printf("#,%#x--\n", 10))
 	   	printf("no match:\n");
 	printf("\n");
 
-		if (printf("#,%#x--\n", -10) !=
+   if (printf("#,%#x--\n", -10) !=
 	ft_printf("#,%#x--\n", -10))
 	   	printf("no match:\n");
 	printf("\n");
 
-		if (printf("#,%#x--\n", 0) !=
+   if (printf("#,%#x--\n", 0) !=
 	ft_printf("#,%#x--\n", 0))
 	   	printf("no match:\n");
 	printf("\n");

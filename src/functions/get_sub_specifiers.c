@@ -47,10 +47,12 @@ static void		add_precision(t_bundle *bundle, int *i)
 	int		width;
 
 	(*i)++;
+	width = 0;
 	if (bundle->format[*i] == '*')
 	{
 		(*i)++;
 		bundle->sub_specifiers->precision = va_arg(*(bundle->var_list), int);
+		return ;
 	}
 	else if (ft_isdigit(bundle->format[*i]))
 	{
@@ -61,11 +63,11 @@ static void		add_precision(t_bundle *bundle, int *i)
 			width = (bundle->format[*i] - '0') + (width * 10);
 			(*i)++;
 		}
-		bundle->sub_specifiers->precision = width;
 	}
+	bundle->sub_specifiers->precision = width;
 }
-/*
-static void		add_precision(t_bundle *bundle, int *i)
+
+static void		add_length(t_bundle *bundle, int *i)
 {
 	if (bundle->format[*i] == 'j' && (*i)++)
 		ft_strcpy(bundle->sub_specifiers->length, "j\0");
@@ -85,13 +87,17 @@ static void		add_precision(t_bundle *bundle, int *i)
 		else
 			ft_strcpy(bundle->sub_specifiers->length, "h\0");
 	}
-}*/
+}
 
 int				get_sub_specifiers(t_bundle *bundle)
 {
 	int		i;
 
 	i = bundle->i + 1;
+	ft_strcpy(bundle->sub_specifiers->flag, "\0");
+	ft_strcpy(bundle->sub_specifiers->length, "\0");
+	bundle->sub_specifiers->width = 0;
+	bundle->sub_specifiers->precision = -1;
 	while (i != bundle->last_specifier_index)
 	{
 		if (ft_strchr(FLAGS, bundle->format[i]) && (bundle->format[i] != '0' || !ft_isdigit(bundle->format[i - 1])))
@@ -102,14 +108,12 @@ int				get_sub_specifiers(t_bundle *bundle)
 			add_width(bundle, &i);
 		else if (bundle->format[i] == '.')
 			add_precision(bundle, &i);
-/*		else if (ft_strchr("lhzj", bundle->format[i]))
-			add_length(bundle, &i);*/
+		else if (ft_strchr("lhzj", bundle->format[i]))
+			add_length(bundle, &i);
 		else//todo error case
 			i++;
 	}
-/*	printf("--->%s*\n",bundle->sub_specifiers->flag);
-	printf("--->%d*\n",bundle->sub_specifiers->width);
-	printf("--->%d*\n",bundle->sub_specifiers->precision);*/
+	bundle->sub_specifiers->specifier = bundle->format[bundle->last_specifier_index];
 	return (1);
 }
 

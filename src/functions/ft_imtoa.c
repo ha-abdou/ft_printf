@@ -21,8 +21,8 @@ char	*ft_imtoa(intmax_t n)
 	int		l;
 	int		sign;
 
-	if (n == -9223372036854775807)
-		return (ft_strcpy(ft_strnew(20), "-9223372036854775807"));
+	if (n == -9223372036854775808)
+		return (ft_strcpy(ft_strnew(20), "-9223372036854775808"));
 	sign = 1;
 	if (n < 0)
 	{

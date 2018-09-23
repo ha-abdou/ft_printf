@@ -1,5 +1,20 @@
 
-	/*   if (printf("%d\n", 2147483647) !=
+   if (printf("%zd\n", 4294967295) !=
+	ft_printf("%zd\n", 4294967295))
+	   	printf("no match:\n");
+	printf("\n");
+
+   if (printf("%zd\n", 4294967296) !=
+	ft_printf("%zd\n", 4294967296))
+	   	printf("no match:\n");
+	printf("\n");
+
+   if (printf("%01.2d\n", -1) !=
+	ft_printf("%01.2d\n", -1))
+	   	printf("no match:\n");
+	printf("\n");
+
+	   if (printf("%d\n", 2147483647) !=
 	ft_printf("%d\n", 2147483647))
 	   	printf("no match:\n");
 	printf("\n");
@@ -7,8 +22,8 @@
 	   if (printf("%d\n", 2147483648) !=
 	ft_printf("%d\n", 2147483648))
 	   	printf("no match:\n");
-	printf("\n");*/
-/*
+	printf("\n");
+
 	   if (printf("hh127,%hhd\n", 127) !=
 	ft_printf("hh127,%hhd\n", 127))
 	   	printf("no match:\n");
@@ -62,8 +77,8 @@
 	if (printf("z65536,%zd\n", 65536) !=
 	ft_printf("z65536,%zd\n", 65536))
 	   	printf("no match:\n");
-	printf("\n");*/
-/*
+	printf("\n");
+
 	if (printf(".010,%.0d\n", 10) !=
 	ft_printf(".010,%.0d\n", 10))
 	   	printf("no match:\n");
@@ -137,13 +152,13 @@
 	   	printf("no match:\n");
 	printf("\n");
 
-		if (printf(".*10,%.*d\n", 0 ,10) !=
+   if (printf(".*10,%.*d\n", 0 ,10) !=
 	ft_printf(".*10,%.*d\n", 0, 10))
 	   	printf("no match:\n");
 	printf("\n");
 
-		if (printf(".*10,%.*d\n", 10 ,10) !=
-	ft_printf(".*10,%.*d\n", 10, 10))
+		if (printf(".*10,%.*i\n", 10 ,10) !=
+	ft_printf(".*10,%.*i\n", 10, 10))
 	   	printf("no match:\n");
 	printf("\n");
 
@@ -202,12 +217,17 @@
 	   	printf("no match:\n");
 	printf("\n");
 
-*/
+
+
+   printf("1%10c*\n", 0);
+ft_printf("2%10c*\n", 0);
+
+
 		if (printf("#,%#d--\n", 10) !=
 	ft_printf("#,%#d--\n", 10))
 	   	printf("no match:\n");
 	printf("\n");
-/*
+
 		if (printf("#,%#d--\n", -10) !=
 	ft_printf("#,%#d--\n", -10))
 	   	printf("no match:\n");
@@ -232,8 +252,8 @@
 		if (printf("-,%-d--\n", 0) !=
 	ft_printf("-,%-d--\n", 0))
 	   	printf("no match:\n");
-	printf("\n");*/
-/*
+	printf("\n");
+
 
 		if (printf("+,%+d--\n", 10) !=
 	ft_printf("+,%+d--\n", 10))
@@ -625,5 +645,3 @@
 	ft_printf("-20.0,%-20.0d--\n", 0))
 	   	printf("no match:\n");
 	printf("\n");
-
-	*/

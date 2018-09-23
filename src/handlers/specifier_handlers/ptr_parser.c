@@ -46,9 +46,11 @@ void		ptr_parser(void *self)
 
 	bundle = (t_bundle *)self;
 	number = unsigned_int_length_handler(bundle);
-	if ((is_not_nil = ft_strcmp("0", number)) == 0)
-		number = nil_handler(bundle, number);
+/*	if ((is_not_nil = ft_strcmp("0", number)) == 0)
+		number = nil_handler(bundle, number);*/
 	remove_flags(bundle->sub_specifiers->flag, '#');
+	remove_flags(bundle->sub_specifiers->flag, '+');
+	remove_flags(bundle->sub_specifiers->flag, ' ');
 	number = int_precision_handler(bundle, number);
 	if (is_not_nil)
 		number = add_x0(number);

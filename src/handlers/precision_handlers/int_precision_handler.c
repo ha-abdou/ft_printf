@@ -39,9 +39,10 @@ char		*int_precision_handler(t_bundle *bundle, char *number)
 		number[0] = '\0';
 		return (number);
 	}
-	if ((i = bundle->sub_specifiers->precision - ft_strlen(number)) <= 0)
+	if ((i = bundle->sub_specifiers->precision - ft_strlen(number)) < 0)
 		return (number);
 	if (number[0] == '-')
 		i++;
+
 	return (add_zeros(i, number));
 }

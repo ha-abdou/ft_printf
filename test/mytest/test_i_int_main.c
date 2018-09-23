@@ -1,5 +1,5 @@
 
-	   if (printf("%i\n", 2147483647) !=
+	  if (printf("%i\n", 2147483647) !=
 	ft_printf("%i\n", 2147483647))
 	   	printf("no match:\n");
 	printf("\n");
@@ -9,12 +9,12 @@
 	   	printf("no match:\n");
 	printf("\n");
 
-	   if (printf("hh127,%hhi\n", 127) !=
+   if (printf("hh127,%hhi\n", 127) !=
 	ft_printf("hh127,%hhi\n", 127))
 	   	printf("no match:\n");
 	printf("\n");
 
-	   if (printf("hh128,%hhi\n", 128) !=
+		   if (printf("hh128,%hhi\n", 128) !=
 	ft_printf("hh128,%hhi\n", 128))
 	   	printf("no match:\n");
 	printf("\n");
@@ -44,10 +44,10 @@
 	   	printf("no match:\n");
 	printf("\n");
 
-//	if (printf("ll9223372036854775808,%lli\n", 9223372036854775808) !=
-//	ft_printf("ll9223372036854775808,%lli\n", 9223372036854775808))
-//	   	printf("no match:\n");
-//	printf("\n");
+   if (printf("ll9223372036854775808,%lli\n", 9223372036854775808) !=
+	ft_printf("ll9223372036854775808,%lli\n", 9223372036854775808))
+	   	printf("no match:\n");
+	printf("\n");
 
 		if (printf("ll-9223372036854775807,%lli\n", -9223372036854775807) !=
 	ft_printf("ll-9223372036854775807,%lli\n", -9223372036854775807))
@@ -479,17 +479,17 @@
 	   	printf("no match:\n");
 	printf("\n");
 
-		if (printf("020.-10,%020.-10i--\n", 0) !=
+   if (printf("020.-10,%020.-10i--\n", 0) !=
 	ft_printf("020.-10,%020.-10i--\n", 0))
 	   	printf("no match:\n");
 	printf("\n");
 
-		if (printf(" 20.-10,% 20.-10i--\n", 10) !=
+   if (printf(" 20.-10,% 20.-10i--\n", 10) !=
 	ft_printf(" 20.-10,% 20.-10i--\n", 10))
 	   	printf("no match:\n");
 	printf("\n");
 
-		if (printf(" 20.-10,% 20.-10i--\n", -10) !=
+	if (printf(" 20.-10,% 20.-10i--\n", -10) !=
 	ft_printf(" 20.-10,% 20.-10i--\n", -10))
 	   	printf("no match:\n");
 	printf("\n");
@@ -546,7 +546,7 @@
 	   	printf("no match:\n");
 	printf("\n");
 
-		if (printf("020.0,%020.0i--\n", 0) !=
+			if (printf("020.0,%020.0i--\n", 0) !=
 	ft_printf("020.0,%020.0i--\n", 0))
 	   	printf("no match:\n");
 	printf("\n");

@@ -1,4 +1,12 @@
 
+int iiiiiiiiiiiiiiii;
+
+   if (printf("%p\n", &iiiiiiiiiiiiiiii) !=
+	ft_printf("%p\n", &iiiiiiiiiiiiiiii))
+	   	printf("no match:\n");
+	printf("\n");
+
+
 	   if (printf("%p\n", 1) !=
 	ft_printf("%p\n", 1))
 	   	printf("no match:\n");
@@ -7,7 +15,7 @@
 	   if (printf("%p\n", 2147483648) !=
 	ft_printf("%p\n", 2147483648))
 	   	printf("no match:\n");
-	printf("\n");
+	printf( "\n");
 
 	   if (printf("hh127,%hhp\n", 127) !=
 	ft_printf("hh127,%hhp\n", 127))
@@ -600,4 +608,4 @@
 	ft_printf("-20.0,%-20.0p--\n", 0))
 	   	printf("no match:\n");
 	printf("\n");
-	
+	*/
