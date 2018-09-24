@@ -24,8 +24,11 @@ void		char_ptr_parser(void *self)
 	len = 6;
 	if (!str && (bundle->sub_specifiers->precision > 5 || bundle->sub_specifiers->precision == -1))
 		str = (int*)ft_strcpy(ft_strnew(6), "(null)");
-	else if (!str && bundle->sub_specifiers->precision < 5)
-		len = 0;
+	else if (!str && bundle->sub_specifiers->precision <= 5)
+	{
+		str = (int*)ft_strncpy(ft_strnew(6), "(null)", bundle->sub_specifiers->precision);
+		len = bundle->sub_specifiers->precision;
+	}
 	else if (str && (len = ft_strlen((char *)str)) > bundle->sub_specifiers->precision && bundle->sub_specifiers->precision >= 0)
 		len = bundle->sub_specifiers->precision;
 	if (bundle->sub_specifiers->width <= len)
@@ -37,7 +40,10 @@ void		char_ptr_parser(void *self)
 		if (bundle->sub_specifiers->width > len)
 		{
 			tmp = ft_strnew(bundle->sub_specifiers->width);
-			ft_memset((void*)tmp, ' ', bundle->sub_specifiers->width - len);
+			if (ft_strchr(bundle->sub_specifiers->flag, '0') && !ft_strchr(bundle->sub_specifiers->flag, '-'))
+				ft_memset((void*)tmp, '0', bundle->sub_specifiers->width - len);
+			else
+				ft_memset((void*)tmp, ' ', bundle->sub_specifiers->width - len);
 			bundle->cpy2buffer(bundle, tmp, ft_strlen(tmp));
 		}
 		if (!ft_strchr(bundle->sub_specifiers->flag, '-'))

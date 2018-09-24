@@ -36,6 +36,8 @@
 	   	printf("no match:\n");
 	printf("\n");
 
+
+/*
 	   if (printf("l ,%ls\n", "abc" ) !=
 	ft_printf("l ,%ls\n", "abc" ))
 	  	printf("no match:\n");
@@ -51,6 +53,9 @@
 	ft_printf("ll,%lls\n", "abc"))
 	   	printf("no match:\n");
 	printf("\n");
+
+*/
+
 
 
 	   if (printf("z65535,%zs\n", "abc") !=
@@ -103,6 +108,7 @@
 	ft_printf(".100,%.10s\n", 0))
 	   	printf("no match:\n");
 	printf("\n");
+
 
 		if (printf(".-100,%.-10s\n", 0) !=
 	ft_printf(".-100,%.-10s\n", 0))
@@ -265,9 +271,6 @@
 	   	printf("no match:\n");
 	printf("\n");
 
-
-
-
 		if (printf("020,%020s--\n", "abc") !=
 	ft_printf("020,%020s--\n", "abc"))
 	   	printf("no match:\n");
@@ -420,8 +423,8 @@
 	   	printf("no match:\n");
 	printf("\n");
 
-		if (printf("020.1,%020.1s--\n", 0) !=
-	ft_printf("020.1,%020.1s--\n", 0))
+   if (printf("020.1,%020.5s--\n", 0) !=
+	ft_printf("020.1,%020.5s--\n", 0))
 	   	printf("no match:\n");
 	printf("\n");
 

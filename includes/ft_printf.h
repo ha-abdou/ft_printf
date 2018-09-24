@@ -66,12 +66,12 @@ char				*hashtag_for_hexa(t_bundle *bundle, char *str, int *i);
 void				ptr_parser(void *self);
 void				char_parser(void *self);
 void				percentage_parser(void *self);
-int					*char_length_modifier_handler(t_bundle *bundle);
+intmax_t			*char_length_modifier_handler(t_bundle *bundle);
 void				char_ptr_parser(void *self);
 char				*handler_flag_plus(t_bundle *bundle, char *str, int *i);
 char				*handler_flag_zero(char *str);
 char				*handler_flag_minus(char *str, int i, int l);
 char				*handler_flag_hashtag(char *str, t_bundle *bundle, int *i);
-void				wchar_print(t_bundle *bundle, int *str, int len);
+void				wchar_print(t_bundle *bundle, intmax_t *str, int len);
 
 #endif

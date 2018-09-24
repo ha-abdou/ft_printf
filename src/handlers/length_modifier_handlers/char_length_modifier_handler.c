@@ -4,27 +4,28 @@
 #include "ft_printf.h"
 #include <wchar.h>
 
-int			*char_length_modifier_handler(t_bundle *bundle)
+intmax_t			*char_length_modifier_handler(t_bundle *bundle)
 {
-	int		*str;
+	intmax_t		*str;
 
 	str = 0;
 	if (bundle->sub_specifiers->specifier == 'c')
 	{
-		str = (int *)malloc(sizeof(str) * 2);
+		str = (intmax_t *)malloc(sizeof(intmax_t) * 2);
+		str[1] = '\0';
 		if (bundle->sub_specifiers->length && ft_strcmp(bundle->sub_specifiers->length ,"l") == 0)
-			str[0] = (wint_t)va_arg(*(bundle->var_list), int);
+			str[0] = (wint_t)va_arg(*(bundle->var_list), intmax_t);
 		else
-			str[0] = va_arg(*(bundle->var_list), int);
+			str[0] = (char)va_arg(*(bundle->var_list), intmax_t);
 	}
 	else if (bundle->sub_specifiers->specifier == 's')
 	{
 		if (bundle->sub_specifiers->length[0] && ft_strcmp(bundle->sub_specifiers->length ,"l") == 0)
-			str = (int*)((wchar_t*)va_arg(*(bundle->var_list), int*));
+			str = (intmax_t*)((wchar_t*)va_arg(*(bundle->var_list), intmax_t*));
 		else
-			str = (int*)va_arg(*(bundle->var_list), char*);
+			str = (intmax_t*)va_arg(*(bundle->var_list), char*);
 		if (str)
-			str = (int *)ft_strdup((char *)str);
+			str = (intmax_t *)ft_strdup((char *)str);
 	}
 	return (str);
 }

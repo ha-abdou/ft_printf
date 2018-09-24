@@ -1,5 +1,3 @@
-
-
 	   if (printf("%c\n", 'a') !=
 	ft_printf("%c\n", 'a'))
 	   	printf("no match:\n");
@@ -37,6 +35,8 @@
 	   	printf("no match:\n");
 	printf("\n");
 
+
+/*
 	   if (printf("l4294967295 ,%lc\n", 'a' ) !=
 	ft_printf("l4294967295 ,%lc\n", 'a' ))
 	   	printf("no match:\n");
@@ -57,7 +57,8 @@
 	ft_printf("ll18446744073709551616,%llc\n", 'a'))
 	   	printf("no match:\n");
 	printf("\n");
-
+*/
+	
 	   if (printf("z65535,%zc\n", 'a') !=
 	ft_printf("z65535,%zc\n", 'a'))
 	   	printf("no match:\n");
@@ -128,7 +129,7 @@
 	ft_printf(".*a,%.*c\n", -10, 'a'))
 	   	printf("no match:\n");
 	printf("\n");
-
+ 
 	if (printf("0a,%0c--\n", 'a') !=
 	ft_printf("0a,%0c--\n", 'a'))
 	   	printf("no match:\n");
@@ -201,6 +202,7 @@
 	printf("\n");
 
 
+
 		if (printf("-,%-c--\n", 'a') !=
 	ft_printf("-,%-c--\n", 'a'))
 	   	printf("no match:\n");
@@ -264,7 +266,6 @@
 	ft_printf("0,%0c--\n", 0))
 	   	printf("no match:\n");
 	printf("\n");
-
 
 
 
@@ -609,3 +610,4 @@
 	ft_printf("-20.0,%-20.0c--\n", 0))
 	   	printf("no match:\n");
 	printf("\n");
+
