@@ -1,6 +1,6 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# define SPECIFIERS "diuXxobpcs%"
+# define SPECIFIERS "dDOUiuXxobpcs%"
 # define FLAGS " -+#0"
 
 #include <stdarg.h>

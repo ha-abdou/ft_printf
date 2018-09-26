@@ -5,18 +5,19 @@
 //"1234567%mmmmezzzzd\n"
 int main()
 {
-/*
-	int i =    printf("%#.0x\n", 0);
-	int j = ft_printf("%#.0x\n", 0);
+
+	int i =    printf("{% 03d}\n", 0);
+	int j = ft_printf("{% 03d}\n", 0);
 
 	printf("%d, %d\n", i, j);
-*/
+
 /*	   printf("%#-10.20%\n");
 	ft_printf("%#-10.20%\n");
 */
 /*	printf("%s\n", ft_uimtoa_base(16, 16, 0));;
 	printf("%x\n", 16);;
 */
+
 
 //	#include "./test_somme_errors.c"
 //	#include "./test_d_int_main.c" //ok
@@ -29,6 +30,7 @@ int main()
 //	#include "./test_p_int_main.c" //ok
 //	#include "./test_c_int_main.c" //ok wchar
 //	#include "./test_s_main.c"     //ok wchar
+//	#include "./test_%_main.c"     //ok
 
 	return (0);
 }

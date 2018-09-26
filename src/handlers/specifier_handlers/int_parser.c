@@ -24,10 +24,15 @@ void		int_parser(void *self)
 	int					i;
 
 	bundle = (t_bundle *)self;
+	if (bundle->sub_specifiers->specifier == 'D')
+	{
+		//bundle->sub_specifiers->specifier = 'd';
+		bundle->sub_specifiers->length[0] = 'l';
+		bundle->sub_specifiers->length[1] = 'l';
+		bundle->sub_specifiers->length[2] = '\0';
+	}
 	number = int_length_modifier_handler(bundle);
-
 	number = int_precision_handler(bundle, number);
-
 	i = ft_strlen(number);
 	if (ft_strchr(bundle->sub_specifiers->flag, ' '))
 		i++;

@@ -24,6 +24,13 @@ void		unsigned_int_parser(void *self)
 	int					i;
 
 	bundle = (t_bundle *)self;
+	if (bundle->sub_specifiers->specifier == 'O' || bundle->sub_specifiers->specifier == 'U')
+	{
+		bundle->sub_specifiers->specifier = ft_tolower(bundle->sub_specifiers->specifier);
+		bundle->sub_specifiers->length[0] = 'l';
+		bundle->sub_specifiers->length[1] = 'l';
+		bundle->sub_specifiers->length[2] = '\0';
+	}
 	number = unsigned_int_length_handler(bundle);
 
 	number = int_precision_handler(bundle, number);
