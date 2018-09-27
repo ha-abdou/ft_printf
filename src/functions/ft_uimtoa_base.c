@@ -2,7 +2,7 @@
 #include "libft.h"
 #include <inttypes.h>
 
-int		nn(uintmax_t n, int b)
+static int		nn(uintmax_t n, int b)
 {
 	int	l;
 
@@ -15,7 +15,7 @@ int		nn(uintmax_t n, int b)
 	return (l);
 }
 
-char	*ft_uimtoa_base(uintmax_t n, int b, int up)
+char			*ft_uimtoa_base(uintmax_t n, int b, int up)
 {
 	char	*str;
 	int		l;

@@ -35,6 +35,7 @@ char		*unsigned_int_length_handler(t_bundle *bundle)
 		i = (uintmax_t)va_arg(*(bundle->var_list), uintmax_t);
 	else if (ft_strcmp(bundle->sub_specifiers->length ,"z") == 0)
 		i = va_arg(*(bundle->var_list), size_t);
-	return (ft_uimtoa_base(i , get_base(bundle->sub_specifiers->specifier), bundle->sub_specifiers->specifier == 'X'));
+	return (ft_uimtoa_base(i, get_base(bundle->sub_specifiers->specifier),\
+		bundle->sub_specifiers->specifier == 'X'));
 }
 

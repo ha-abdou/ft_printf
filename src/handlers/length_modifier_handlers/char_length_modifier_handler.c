@@ -14,14 +14,14 @@ intmax_t			*char_length_modifier_handler(t_bundle *bundle)
 		str = (intmax_t *)malloc(sizeof(intmax_t) * 2);
 		str[1] = '\0';
 		if (bundle->sub_specifiers->length && ft_strcmp(bundle->sub_specifiers->length ,"l") == 0)
-			str[0] = (wint_t)va_arg(*(bundle->var_list), intmax_t);
+			str[0] = (intmax_t)va_arg(*(bundle->var_list), intmax_t);
 		else
 			str[0] = (char)va_arg(*(bundle->var_list), intmax_t);
 	}
 	else if (bundle->sub_specifiers->specifier == 's')
 	{
 		if (bundle->sub_specifiers->length[0] && ft_strcmp(bundle->sub_specifiers->length ,"l") == 0)
-			str = (intmax_t*)((wchar_t*)va_arg(*(bundle->var_list), intmax_t*));
+			str = (intmax_t*)va_arg(*(bundle->var_list), intmax_t*);//(wchar_t*)
 		else
 			str = (intmax_t*)va_arg(*(bundle->var_list), char*);
 		if (str)

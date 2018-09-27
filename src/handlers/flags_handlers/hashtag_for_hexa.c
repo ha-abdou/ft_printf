@@ -1,6 +1,5 @@
 #include "ft_printf.h"
 #include "libft.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 char	*hashtag_for_hexa(t_bundle *bundle, char *str, int *i)
@@ -12,8 +11,11 @@ char	*hashtag_for_hexa(t_bundle *bundle, char *str, int *i)
 	l = ft_strlen(str);
 	if (l < *i + 2)
 	{
-		tmp = (char *)ft_memset(ft_strnew(*i - l + 2), ' ', *i - l + 2);
-		tmp2 = ft_strjoin(tmp, str);
+		if (!(tmp = ft_strnew(*i - l + 2)))
+			throw(0, EXIT_FAILURE);
+		tmp = (char *)ft_memset(tmp, ' ', *i - l + 2);
+		if (!(tmp2 = ft_strjoin(tmp, str)))
+			throw(0, EXIT_FAILURE);
 		free(tmp);
 		free(str);
 		str = tmp2;

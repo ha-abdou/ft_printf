@@ -2,7 +2,7 @@
 #include <inttypes.h>
 #include "libft.h"
 
-int		ft_intmaxlen(intmax_t n)
+static int	ft_intmaxlen(intmax_t n)
 {
 	int	l;
 
@@ -15,7 +15,7 @@ int		ft_intmaxlen(intmax_t n)
 	return (l);
 }
 
-char	*ft_imtoa(intmax_t n)
+char		*ft_imtoa(intmax_t n)
 {
 	char	*str;
 	int		l;

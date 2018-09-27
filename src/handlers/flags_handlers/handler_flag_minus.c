@@ -1,7 +1,5 @@
 #include "ft_printf.h"
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 char		*handler_flag_minus(char *str, int i, int l)
 {	

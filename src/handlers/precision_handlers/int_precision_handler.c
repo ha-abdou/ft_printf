@@ -1,16 +1,17 @@
-#include <inttypes.h>
-#include <stdlib.h>
 #include "ft_printf.h"
 #include "libft.h" 
-#include "ft_printf.h"
+#include <inttypes.h>
+#include <stdlib.h>
 
 static char	*add_zeros(int i, char *number)
 {
 	char	*str;
 	char	*tmp;
 
-	tmp = ft_strnew(i);
-	str = ft_strjoin((char *)ft_memset(tmp, ' ', i), number);
+	if (!(tmp = ft_strnew(i)))
+		throw(0, EXIT_FAILURE);
+	if (!(str = ft_strjoin((char *)ft_memset(tmp, ' ', i), number)))
+		throw(0, EXIT_FAILURE);
 	free(number);
 	free(tmp);
 	i = 0;
@@ -43,6 +44,5 @@ char		*int_precision_handler(t_bundle *bundle, char *number)
 		return (number);
 	if (number[0] == '-')
 		i++;
-
 	return (add_zeros(i, number));
 }

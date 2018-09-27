@@ -6,8 +6,8 @@
 char		*generique_flag_handler(t_bundle *bundle, char *str, int i)
 {
 	char	*tmp;
-//	printf("---->%c\n", bundle->sub_specifiers->specifier );
-	if (ft_strchr(bundle->sub_specifiers->flag, '#') && bundle->sub_specifiers->specifier != 'i' && bundle->sub_specifiers->specifier != 'd'/* || sub_specifiers->specifier == 'p'*/)
+
+	if (ft_strchr(bundle->sub_specifiers->flag, '#'))
 		str = handler_flag_hashtag(str, bundle, &i);
 	if (ft_strchr(bundle->sub_specifiers->flag, '+'))
 		str = handler_flag_plus(bundle, str, &i);
@@ -15,12 +15,15 @@ char		*generique_flag_handler(t_bundle *bundle, char *str, int i)
 		&& str[0] != '-' && bundle->sub_specifiers->width <= i)
 	{
 		tmp = str;
-		str = ft_strchr(bundle->sub_specifiers->flag, '+') ? str : ft_strjoin(" ", str);
+		if (!(str =  ft_strjoin(" ", str)))
+			throw(0, EXIT_FAILURE);
 		free(tmp);
 	}
-	if (ft_strchr(bundle->sub_specifiers->flag, '-') && bundle->sub_specifiers->width - i >= 0)
+	if (ft_strchr(bundle->sub_specifiers->flag, '-')
+		&& bundle->sub_specifiers->width - i >= 0)
 		str = handler_flag_minus(str , i, bundle->sub_specifiers->width - i);
-	if (ft_strchr(bundle->sub_specifiers->flag, '0') && bundle->sub_specifiers->precision < 0)
+	if (ft_strchr(bundle->sub_specifiers->flag, '0')
+		&& bundle->sub_specifiers->precision < 0)
 		str = handler_flag_zero(str);
 	return (str);
 }
