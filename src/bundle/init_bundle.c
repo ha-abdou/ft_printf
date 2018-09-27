@@ -8,28 +8,29 @@ char			current_char(t_bundle *self)
 	return (self->format[self->i]);
 }
 
+//todo exend buffer
 void			cpy2buffer(t_bundle *self, char *str, int len)
 {
 	if (len == 0)
 		return ;
 	if (len > BUFFERSIZE)
 	{
-		self->print_buffer(self);
+		self->print_buffer(self, 1);
 		write(1, str, len);
 		self->printed_length += len;
 		return ;
 	}
 	if (self->buffer_length + len > BUFFERSIZE)
-		self->print_buffer(self);
+		self->print_buffer(self, 1);
 	ft_strncpy(self->buffer + self->buffer_length, str, len);
 	self->buffer_length += len;
 }
 
-void			print_buffer(t_bundle *self)
+void			print_buffer(t_bundle *self, int fd)
 {
 	if (self->buffer_length == 0)
 		return ;
-	write(1, self->buffer, self->buffer_length);
+	write(fd, self->buffer, self->buffer_length);
 	self->printed_length += self->buffer_length;
 	self->buffer_length = 0;
 }

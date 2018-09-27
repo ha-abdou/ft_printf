@@ -1,10 +1,10 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# define SPECIFIERS "dDOUiuXxobpcs%"
+# define SPECIFIERS "dDOUiuXxopcs%bBnvr"
 # define FLAGS " -+#0"
-# define BUFFERSIZE 128
-#include <stdarg.h>
-#include <inttypes.h>
+# define BUFFERSIZE 4096
+# include <stdarg.h>
+# include <inttypes.h>
 typedef struct			s_sub_specifiers
 {
 	char	*flag;
@@ -31,7 +31,7 @@ typedef struct s_bundle
 	va_list				*var_list;
 	char				**specifier;
 	char				(*current_char)(struct s_bundle *self);
-	void				(*print_buffer)(struct s_bundle *self);
+	void				(*print_buffer)(struct s_bundle *self, int fd);
 	void				(*cpy2buffer)(struct s_bundle *self, char *str, int len);
 	void				(*format_handler)(struct s_bundle *self);
 	t_handlers			*handlers;
@@ -70,5 +70,12 @@ char					*handler_flag_minus(char *str, int i, int l);
 char					*handler_flag_hashtag(char *str, t_bundle *bundle, int *i);
 void					wchar_print(t_bundle *bundle, intmax_t *str, int len);
 char					*remove_flags(char *flags, char c);
+char					*handler_flag_space(t_bundle *bundle, char *str, int *i);
+void					n_parser(void *self);
+void					v_parser(void *self);
+void					r_parser(void *self);
+void					print_buffer(t_bundle *self, int fd);
+void					cpy2buffer(t_bundle *self, char *str, int len);
+char					current_char(t_bundle *self);
 
 #endif

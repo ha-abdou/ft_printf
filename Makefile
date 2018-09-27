@@ -42,7 +42,12 @@ COBJ = src/ft_printf.o src/bundle/init_bundle.o src/functions/throw.o src/handle
 		src/handlers/flags_handlers/handler_flag_plus.o\
 		src/handlers/specifier_handlers/percentage_parser.o\
 		src/functions/wchar_print.o\
-		src/functions/remove_flags.o
+		src/functions/remove_flags.o\
+		src/handlers/specifier_handlers/n_parser.o\
+		src/handlers/specifier_handlers/v_parser.o\
+		src/handlers/specifier_handlers/r_parser.o\
+		src/handlers/flags_handlers/handler_flag_space.o
+
 
 COBJ += $(LCOBJ)
 

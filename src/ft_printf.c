@@ -42,7 +42,7 @@ int				ft_printf(const char *format, ...)
 	if (i != bundle->i)
 		bundle->cpy2buffer(bundle, (char *)bundle->format + i, bundle->i - i);
 	va_end(var_list);
-	bundle->print_buffer(bundle);
+	bundle->print_buffer(bundle, 1);
 	i = bundle->printed_length;
 	free_bundle(bundle);
 	return (i);

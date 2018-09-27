@@ -10,7 +10,7 @@ void		unsigned_int_parser(void *self)
 	int			i;
 
 	bundle = (t_bundle *)self;
-	if (ft_strchr("OU", bundle->sub_specifiers->specifier))
+	if (ft_strchr("OUB", bundle->sub_specifiers->specifier))
 	{
 		bundle->sub_specifiers->specifier += ('a' - 'A');
 		ft_strcpy(bundle->sub_specifiers->length,"ll");

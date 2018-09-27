@@ -105,7 +105,7 @@ void		wchar_print(t_bundle *bundle, intmax_t *str, int len)
 {
 	if (ft_strcmp(bundle->sub_specifiers->length ,"l") == 0)
 	{
-		bundle->print_buffer(bundle);
+		bundle->print_buffer(bundle, 1);
 		ft_putwstr(str);
 	}
 	else

@@ -5,11 +5,18 @@
 //"1234567%mmmmezzzzd\n"
 int main()
 {
-
+/*
 	int i =    printf("{% 03d}\n", 0);
 	int j = ft_printf("{% 03d}\n", 0);
+*/
+//	int i = printf("%lls\n", L"ݗݜशব");
+//	char **str;
 
-	printf("%d, %d\n", i, j);
+//	str = (char **)malloc(sizeof(char *));
+
+	int j = ft_printf("%lls\n", L"ݗݜशব");
+
+	printf("%d\n", j);
 
 /*	   printf("%#-10.20%\n");
 	ft_printf("%#-10.20%\n");
