@@ -19,34 +19,42 @@ LCOBJ = src/libft/ft_strlen.o src/libft/ft_tolower.o src/libft/ft_toupper.o src/
 	   src/libft/ft_lstadd.o src/libft/ft_lstiter.o src/libft/ft_lstmap.o src/libft/ft_strdup.o src/libft/ft_strlcat.o\
 	   src/libft/ft_lstpush.o 
 
-COBJ = src/ft_printf.o src/bundle/init_bundle.o src/functions/throw.o src/handlers/format_handler.o src/functions/get_specifier_index.o\
-		src/handlers/init_handlers.o src/handlers/specifier_handlers/int_parser.o src/errors_handlers/specifier_error.o src/functions/get_sub_specifiers.o\
-		src/errors_handlers/format_error.o src/functions/ft_myputnbr.o\
-		src/handlers/length_modifier_handlers/int_length_modifier_handler.o\
-		src/functions/ft_imtoa.o\
-		src/handlers/precision_handlers/int_precision_handler.o\
-		src/handlers/width_handlers/width_handler.o\
-		src/handlers/flags_handlers/generique_flag_handler.o\
-		src/handlers/length_modifier_handlers/unsigned_int_length_modifier_handler.o\
-		src/handlers/specifier_handlers/unsigned_int_parser.o\
-		src/functions/ft_uimtoa_base.o\
-		src/functions/check_for_zero.o\
-		src/handlers/flags_handlers/hashtag_for_hexa.o\
-		src/handlers/specifier_handlers/ptr_parser.o\
-		src/handlers/specifier_handlers/char_parser.o\
-		src/handlers/specifier_handlers/char_ptr_parser.o\
+COBJ = src/handlers/length_modifier_handlers/unsigned_int_length_modifier_handler.o\
 		src/handlers/length_modifier_handlers/char_length_modifier_handler.o\
-		src/handlers/flags_handlers/handler_flag_zero.o\
-		src/handlers/flags_handlers/handler_flag_minus.o\
-		src/handlers/flags_handlers/handler_flag_hashtag.o\
-		src/handlers/flags_handlers/handler_flag_plus.o\
+		src/handlers/length_modifier_handlers/int_length_modifier_handler.o\
+		src/handlers/precision_handlers/int_precision_handler.o\
+		src/handlers/specifier_handlers/unsigned_int_parser.o\
+		src/handlers/flags_handlers/generique_flag_handler.o\
 		src/handlers/specifier_handlers/percentage_parser.o\
-		src/functions/wchar_print.o\
-		src/functions/remove_flags.o\
-		src/handlers/specifier_handlers/n_parser.o\
+		src/handlers/flags_handlers/handler_flag_hashtag.o\
+		src/handlers/specifier_handlers/char_ptr_parser.o\
+		src/handlers/flags_handlers/handler_flag_minus.o\
+		src/handlers/flags_handlers/handler_flag_space.o\
+		src/handlers/flags_handlers/handler_flag_plus.o\
+		src/handlers/flags_handlers/handler_flag_zero.o\
+		src/handlers/flags_handlers/hashtag_for_hexa.o\
+		src/handlers/specifier_handlers/int_parser.o\
+		src/handlers/specifier_handlers/char_parser.o\
+		src/handlers/specifier_handlers/ptr_parser.o\
+		src/handlers/width_handlers/width_handler.o\
 		src/handlers/specifier_handlers/v_parser.o\
 		src/handlers/specifier_handlers/r_parser.o\
-		src/handlers/flags_handlers/handler_flag_space.o
+		src/handlers/specifier_handlers/n_parser.o\
+		src/errors_handlers/specifier_error.o\
+		src/functions/get_specifier_index.o\
+		src/errors_handlers/format_error.o\
+		src/functions/get_sub_specifiers.o\
+		src/functions/ft_uimtoa_base.o\
+		src/functions/check_for_zero.o\
+		src/handlers/format_handler.o\
+		src/functions/remove_flags.o\
+		src/handlers/init_handlers.o\
+		src/functions/ft_myputnbr.o\
+		src/functions/wchar_print.o\
+		src/functions/ft_imtoa.o\
+		src/bundle/init_bundle.o\
+		src/functions/throw.o\
+		src/ft_printf.o
 
 
 COBJ += $(LCOBJ)

@@ -24,8 +24,8 @@ intmax_t			*char_length_modifier_handler(t_bundle *bundle)
 			str = (intmax_t*)va_arg(*(bundle->var_list), intmax_t*);//(wchar_t*)
 		else
 			str = (intmax_t*)va_arg(*(bundle->var_list), char*);
-		if (str)
-			str = (intmax_t *)ft_strdup((char *)str);
+		/*if (str)
+			str = (intmax_t *)ft_strdup((char *)str);*/ 
 	}
 	return (str);
 }

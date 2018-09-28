@@ -13,11 +13,13 @@ int main()
 //	char **str;
 
 //	str = (char **)malloc(sizeof(char *));
+/*
+	int j = ft_printf("%ls\n", L"ݗݜशব");
 
-	int j = ft_printf("%lls\n", L"ݗݜशব");
+	printf("%d\n", j);*/
+	int j = printf("%lc\n", L'शব');
 
 	printf("%d\n", j);
-
 /*	   printf("%#-10.20%\n");
 	ft_printf("%#-10.20%\n");
 */
