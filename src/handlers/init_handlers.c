@@ -17,6 +17,7 @@ void		init_handlers(t_bundle *self)
 {	//todo SC
 	self->handlers = 0;
 	handlers_push(self, 's', &char_ptr_parser);
+	handlers_push(self, 'S', &char_ptr_parser);
 	handlers_push(self, 'p', &ptr_parser);
 	handlers_push(self, 'd', &int_parser);
 	handlers_push(self, 'D', &int_parser);
@@ -28,10 +29,11 @@ void		init_handlers(t_bundle *self)
 	handlers_push(self, 'x', &unsigned_int_parser);
 	handlers_push(self, 'X', &unsigned_int_parser);
 	handlers_push(self, 'c', &char_parser);
+	handlers_push(self, 'C', &char_parser);
 	handlers_push(self, '%', &percentage_parser);
-	handlers_push(self, 'b', &unsigned_int_parser);//*
-	handlers_push(self, 'B', &unsigned_int_parser);//*
-	handlers_push(self, 'n', &n_parser);//*
-	handlers_push(self, 'v', &v_parser);//*
-	handlers_push(self, 'r', &r_parser);//*
+	handlers_push(self, 'b', &unsigned_int_parser);
+	handlers_push(self, 'B', &unsigned_int_parser);
+	handlers_push(self, 'n', &n_parser);
+	handlers_push(self, 'v', &v_parser);
+	handlers_push(self, 'r', &r_parser);
 }

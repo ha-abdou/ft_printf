@@ -271,7 +271,6 @@ ft_printf("2%10c*\n", 0);
 	printf("\n");
 
 
-
 		if (printf(" ,% d--\n", 10) !=
 	ft_printf(" ,% d--\n", 10))
 	   	printf("no match:\n");

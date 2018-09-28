@@ -14,9 +14,9 @@ char		*handler_flag_space(t_bundle *bundle, char *str, int *i)
 	else
 	{
 		tmp = str;
-		if (!(str =  ft_strjoin(" ", str)))
+		if (!(str =  ft_strjoin(" ", tmp)))
 			throw(0, EXIT_FAILURE);
-		free(tmp);
+		//free(tmp); double free error
 	}
-	return (str);
+	return (tmp);
 }

@@ -98,7 +98,7 @@ mytest: $(NAME)
 mytestleaks: $(NAME)
 	$(CC) $(FLAGS) -c test/mytest/main.c
 	$(CC) -o run main.o libftprintf.a
-	valgrind --leak-check=full --track-origins=yes ./run
+	valgrind -v --leak-check=full --track-origins=yes ./run
 
 minitestleaks: $(NAME)
 	$(CC) $(FLAGS) -c test/test_int_main.c

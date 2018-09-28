@@ -17,9 +17,9 @@ int main()
 	int j = ft_printf("%ls\n", L"ݗݜशব");
 
 	printf("%d\n", j);*/
-	int j = printf("%lc\n", L'शব');
+/*	int j = ft_printf("%.1s\n", 0);
 
-	printf("%d\n", j);
+	printf("%d\n", j);*/
 /*	   printf("%#-10.20%\n");
 	ft_printf("%#-10.20%\n");
 */
@@ -37,8 +37,8 @@ int main()
 //	#include "./test_o_int_main.c" //ok
 //	#include "./test_b_int_main.c"
 //	#include "./test_p_int_main.c" //ok
-//	#include "./test_c_int_main.c" //ok wchar
-//	#include "./test_s_main.c"     //ok wchar
+//	#include "./test_c_int_main.c" //ok
+//	#include "./test_s_main.c"     //ok
 //	#include "./test_%_main.c"     //ok
 
 	return (0);

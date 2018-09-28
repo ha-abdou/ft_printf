@@ -9,7 +9,8 @@ char		*width_handler(t_bundle *bundle, char *str)
 	char	*tmp;
 	char	*tmp2;
 
-	if (bundle->sub_specifiers->width > 0 && (i = bundle->sub_specifiers->width - ft_strlen(str)) > 0)
+	if (bundle->sub_specifiers->width > 0 &&
+		(i = bundle->sub_specifiers->width - ft_strlen(str)) > 0)
 	{
 		tmp2 = ft_strnew(i);
 		tmp = ft_strjoin((char *)ft_memset(tmp2, ' ', i), str);

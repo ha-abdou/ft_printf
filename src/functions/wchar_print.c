@@ -2,7 +2,7 @@
 #include "libft.h"
 #include <stdlib.h>
 #include <stdio.h>
-
+/*
 intmax_t	ft_power(intmax_t a, intmax_t b)
 {
 	if (b < 0)
@@ -88,8 +88,8 @@ void		ft_putwchar(intmax_t i)
 		utf8_decimal_to_binary(i, 16);
 	else if (i <= 0x10FFFF)
 		utf8_decimal_to_binary(i, 21);
-/*	else
-		exit (0);*/
+	else
+		exit (0);
 }
 
 void		ft_putwstr(intmax_t *i)
@@ -99,14 +99,64 @@ void		ft_putwstr(intmax_t *i)
 		ft_putwchar(*i);
 		i++;
 	}
+}*/
+
+static void	ft_putwchar(wchar_t wc)
+{
+	if (wc <= 127)
+		ft_putchar(wc);
+	else if (wc <= 2047)
+	{
+		ft_putchar((wc >> 6) + 0xC0);
+		ft_putchar((wc & 0x3F) + 0x80);
+	}
+	else if (wc <= 65535)
+	{
+		ft_putchar((wc >> 12) + 0xE0);
+		ft_putchar(((wc >> 6) & 0x3F) + 0x80);
+		ft_putchar((wc & 0x3F) + 0x80);
+	}
+	else if (wc <= 1114111)
+	{
+		ft_putchar((wc >> 18) + 0xF0);
+		ft_putchar(((wc >> 12) & 0x3F) + 0x80);
+		ft_putchar(((wc >> 6) & 0x3F) + 0x80);
+		ft_putchar((wc & 0x3F) + 0x80);
+	}
 }
 
-void		wchar_print(t_bundle *bundle, intmax_t *str, int len)
+static int	ft_putwstr(wchar_t *ws)
+{
+	int	i;
+
+	i = 0;
+	while (*ws)
+	{
+		ft_putwchar(*ws);
+		ws++;
+		i++;
+	}
+	return (i);
+}
+
+void		wchar_print(t_bundle *bundle, wchar_t *str, int len)
 {
 	if (ft_strcmp(bundle->sub_specifiers->length ,"l") == 0)
 	{
 		bundle->print_buffer(bundle, 1);
-		ft_putwstr(str);
+		ft_putwchar(*str);
+		bundle->printed_length++;
+	}
+	else
+		bundle->cpy2buffer(bundle, (char*)str, len);
+}
+
+void		wstr_print(t_bundle *bundle, wchar_t *str, int len)
+{
+	if (ft_strcmp(bundle->sub_specifiers->length ,"l") == 0)
+	{
+		bundle->print_buffer(bundle, 1);
+		bundle->printed_length += ft_putwstr(str);
 	}
 	else
 		bundle->cpy2buffer(bundle, (char*)str, len);

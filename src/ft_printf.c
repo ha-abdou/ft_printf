@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include "ft_printf.h"
 #include <stdlib.h>
+#include <wchar.h>
 
 static void		free_handlers(t_handlers *handlers)
 {
