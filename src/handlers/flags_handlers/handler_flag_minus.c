@@ -6,6 +6,11 @@ char		*handler_flag_minus(char *str, int i, int l)
 	int		n;
 
 	n = 0;
+	if (str[l] == ' ')
+	{
+		i--;
+		l++;
+	}
 	while (n < i && str[n] == ' ')
 	{
 		str[n] = str[n + l];

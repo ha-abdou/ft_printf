@@ -30,7 +30,7 @@ void		init_handlers(t_bundle *self)
 	handlers_push(self, 'X', &unsigned_int_parser);
 	handlers_push(self, 'c', &char_parser);
 	handlers_push(self, 'C', &char_parser);
-	handlers_push(self, '%', &percentage_parser);
+	handlers_push(self, '%', &char_parser);
 	handlers_push(self, 'b', &unsigned_int_parser);
 	handlers_push(self, 'B', &unsigned_int_parser);
 	handlers_push(self, 'n', &n_parser);

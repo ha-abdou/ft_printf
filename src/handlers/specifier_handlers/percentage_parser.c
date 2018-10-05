@@ -6,5 +6,6 @@ void		percentage_parser(void *self)
 	t_bundle			*bundle;
 
 	bundle = (t_bundle *)self;
-	bundle->cpy2buffer(bundle, "%", 1);
+	bundle->sub_specifiers->specifier = 'c';
+	char_parser((void*)bundle);
 }

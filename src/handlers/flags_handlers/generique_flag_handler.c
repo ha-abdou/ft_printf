@@ -5,6 +5,7 @@
 
 char		*generique_flag_handler(t_bundle *bundle, char *str, int i)
 {
+
 	if (ft_strchr(bundle->sub_specifiers->flag, '#'))
 		str = handler_flag_hashtag(str, bundle, &i);
 	if (ft_strchr(bundle->sub_specifiers->flag, '-')
@@ -15,7 +16,7 @@ char		*generique_flag_handler(t_bundle *bundle, char *str, int i)
 		str = handler_flag_zero(str);
 	if (ft_strchr(bundle->sub_specifiers->flag, '+'))
 		str = handler_flag_plus(bundle, str, &i);
-	else if (ft_strchr(bundle->sub_specifiers->flag, ' ') && str[0] != '-' /*&& bundle->sub_specifiers->width <= i*/)
-		handler_flag_space(bundle, str, &i);
+	else if (ft_strchr(bundle->sub_specifiers->flag, ' ') && str[0] != '-')
+		str = handler_flag_space(bundle, str, &i);
 	return (str);
 }

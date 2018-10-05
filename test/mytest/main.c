@@ -23,9 +23,12 @@ int main()
 /*	   printf("%#-10.20%\n");
 	ft_printf("%#-10.20%\n");
 */
-/*	printf("%s\n", ft_uimtoa_base(16, 16, 0));;
-	printf("%x\n", 16);;
-*/
+
+
+ft_printf("{%10R}");
+ft_printf("-\n");
+printf("{%10R}");
+
 
 
 //	#include "./test_somme_errors.c"
