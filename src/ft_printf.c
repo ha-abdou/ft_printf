@@ -26,6 +26,8 @@ int				ft_printf(const char *format, ...)
 	va_list		var_list;
 	int			i;
 
+	if (!format)
+		return (-1);
 	va_start(var_list, format);
 	bundle = init_bundle(format, &var_list);
 	i = bundle->i;
@@ -36,7 +38,8 @@ int				ft_printf(const char *format, ...)
 		else
 		{
 			bundle->cpy2buffer(bundle, (char *)bundle->format + i, bundle->i - i);
-			bundle->format_handler(bundle);
+			if (!bundle->format_handler(bundle))
+				return (-1);
 			i = bundle->i;
 		}
 	}

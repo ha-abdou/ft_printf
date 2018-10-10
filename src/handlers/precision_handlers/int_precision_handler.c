@@ -31,13 +31,19 @@ static char	*add_zeros(int i, char *number)
 	return (str);
 }
 
-char		*int_precision_handler(t_bundle *bundle, char *number)
+char		*int_precision_handler(t_bundle *bundle, char *number, int n)
 {
 	int		i;
 
-	if (ft_strcmp(number, "0") == 0 && bundle->sub_specifiers->precision == 0)
+	i = 0;
+	while (number[i] && number[i] == ' ')
+		i++;
+	if (number[i] == '0' && bundle->sub_specifiers->precision == 0 && (!ft_strchr(bundle->sub_specifiers->flag, '#') || bundle->sub_specifiers->specifier != 'o'))
 	{
-		number[0] = '\0';
+		if (i == 0)
+			number[i] = '\0';
+		else
+			number[i] = ' ';
 		return (number);
 	}
 	if ((i = bundle->sub_specifiers->precision - ft_strlen(number)) < 0)

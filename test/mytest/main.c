@@ -5,11 +5,18 @@
 //"1234567%mmmmezzzzd\n"
 int main()
 {
-/*
-	int i =    printf("{% 03d}\n", 0);
-	int j = ft_printf("{% 03d}\n", 0);
-*/
-//	int i = printf("%lls\n", L"ݗݜशব");
+	int		string[3];
+
+	string[0] = 945;
+	string[1] = 1823;
+	string[2] = 984;
+
+	ft_printf("%C\n", *string);
+	//int j = ft_printf("%15.4u\n", 0, 0);
+
+//	printf("-----\n");
+//:w	printf("%d,\n", i);
+
 //	char **str;
 
 //	str = (char **)malloc(sizeof(char *));
@@ -24,11 +31,11 @@ int main()
 	ft_printf("%#-10.20%\n");
 */
 
-
-ft_printf("{%10R}");
+/*
+ft_printf("%s\n", "dsdfsdfs");
 ft_printf("-\n");
-printf("{%10R}");
-
+   printf("%s\n", "dsdfsdfs");
+*/
 
 
 //	#include "./test_somme_errors.c"

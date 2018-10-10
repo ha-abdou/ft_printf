@@ -16,7 +16,7 @@ void			int_parser(void *self)
 	negativ = 0;
 	if (number[0] == '-')
 		negativ = 1;
-	number = int_precision_handler(bundle, number);
+	number = int_precision_handler(bundle, number, i);
 	i = ft_strlen(number);
 	if (ft_strchr(bundle->sub_specifiers->flag, ' '))
 		i++;

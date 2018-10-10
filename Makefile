@@ -33,8 +33,9 @@ COBJ = src/handlers/length_modifier_handlers/unsigned_int_length_modifier_handle
 		src/handlers/flags_handlers/handler_flag_plus.o\
 		src/handlers/flags_handlers/handler_flag_zero.o\
 		src/handlers/flags_handlers/hashtag_for_hexa.o\
-		src/handlers/specifier_handlers/int_parser.o\
 		src/handlers/specifier_handlers/char_parser.o\
+		src/handlers/specifier_handlers/none_parser.o\
+		src/handlers/specifier_handlers/int_parser.o\
 		src/handlers/specifier_handlers/ptr_parser.o\
 		src/handlers/width_handlers/width_handler.o\
 		src/handlers/specifier_handlers/v_parser.o\
