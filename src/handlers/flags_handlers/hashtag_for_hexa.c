@@ -16,8 +16,8 @@ char	*hashtag_for_hexa(t_bundle *bundle, char *str, int *i)
 		tmp = (char *)ft_memset(tmp, ' ', *i - l + 2);
 		if (!(tmp2 = ft_strjoin(tmp, str)))
 			throw(0, EXIT_FAILURE);
-		free(tmp);
-		free(str);
+//		free(tmp);
+//		free(str);
 		str = tmp2;
 		str[0] = '0'; 
 		str[1] = bundle->sub_specifiers->specifier == 'X' ? 'X' :'x';

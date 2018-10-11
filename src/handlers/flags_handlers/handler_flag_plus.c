@@ -25,7 +25,7 @@ char		*handler_flag_plus(t_bundle *bundle, char *str, int *i)
 			{
 				if (!(tmp = ft_strjoin("+", str)))
 					throw(0, EXIT_FAILURE);
-				free(str);
+//				free(str);
 				tmp[bundle->sub_specifiers->width]  = '\0';
 				return (tmp);
 			}
@@ -35,7 +35,7 @@ char		*handler_flag_plus(t_bundle *bundle, char *str, int *i)
 			{
 				if (!(tmp = ft_strjoin("+", str)))
 					throw(0, EXIT_FAILURE);
-				free(str);
+//				free(str);
 				(*i)++;
 				return (tmp);
 			}
@@ -48,7 +48,7 @@ char		*handler_flag_plus(t_bundle *bundle, char *str, int *i)
 
 				if (!(tmp = ft_strjoin("+", str)))
 					throw(0, EXIT_FAILURE);
-				free(str);
+//				free(str);
 				tmp[bundle->sub_specifiers->width]  = '\0';
 				return (tmp);
 			}
@@ -69,7 +69,7 @@ char		*handler_flag_plus(t_bundle *bundle, char *str, int *i)
 	{
 		if (!(tmp = ft_strjoin("+", str)))
 			throw(0, EXIT_FAILURE);
-		free(str);
+//		free(str);
 		(*i)++;
 		return (tmp);
 	}
