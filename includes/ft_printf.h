@@ -24,7 +24,7 @@ typedef struct s_bundle
 {
 	void				(*cpy2buffer)(struct s_bundle *self, char *str, int len);
 	void				(*print_buffer)(struct s_bundle *self, int fd);
-	int					(*format_handler)(struct s_bundle *self);
+	void				(*format_handler)(struct s_bundle *self);
 	char				(*current_char)(struct s_bundle *self);
 	t_sub_specifiers	*sub_specifiers;
 	int					last_specifier;
@@ -63,7 +63,7 @@ int						ft_printf(const char *format, ...);
 char					*remove_flags(char *flags, char c);
 void					specifier_error(t_bundle *bundel);
 void					unsigned_int_parser(void *self);
-int						format_handler(t_bundle *self);
+void					format_handler(t_bundle *self);
 void					init_handlers(t_bundle *self);
 void					percentage_parser(void *self);
 char					*handler_flag_zero(char *str);

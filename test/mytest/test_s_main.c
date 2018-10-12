@@ -37,7 +37,7 @@
 	printf("\n");
 
 
-/*
+
 	   if (printf("l ,%ls\n", "abc" ) !=
 	ft_printf("l ,%ls\n", "abc" ))
 	  	printf("no match:\n");
@@ -54,7 +54,7 @@
 	   	printf("no match:\n");
 	printf("\n");
 
-*/
+
 
 
 

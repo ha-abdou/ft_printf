@@ -12,8 +12,8 @@ static char	*add_zeros(int i, char *number)
 		throw(0, EXIT_FAILURE);
 	if (!(str = ft_strjoin((char *)ft_memset(tmp, ' ', i), number)))
 		throw(0, EXIT_FAILURE);
-//	free(number);
-//	free(tmp);
+	free(number);
+	free(tmp);
 	i = 0;
 	while (str[i])
 	{

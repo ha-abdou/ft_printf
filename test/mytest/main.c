@@ -1,18 +1,35 @@
+
+#include <wchar.h>
+#include <locale.h>
+#include <unistd.h>
 #include <stdio.h>
-#include "ft_printf.h"
-#include "libft.h"
 #include <stdlib.h>
+#include <string.h>
+#include <inttypes.h>
+
 //"1234567%mmmmezzzzd\n"
 int main()
 {
-	int		string[3];
+/*	int		string[3];
 
 	string[0] = 945;
 	string[1] = 1823;
 	string[2] = 984;
+*/
+	   if (!setlocale(LC_ALL, ""))
+    	printf("Echec setlocal\n");
+/*
+	wchar_t		str[] = L"ݗݜशব";
 
-	ft_printf("%C\n", *string);
-	//int j = ft_printf("%15.4u\n", 0, 0);
+    if (!setlocale(LC_ALL, ""))
+    	printf("Echec setlocal\n");
+
+
+	int	i =    printf("%.2S\n", L"ব");
+	int	j = ft_printf("%.2S\n", L"ব");
+
+	printf("%d, %d\n", i, j);
+*/
 
 //	printf("-----\n");
 //:w	printf("%d,\n", i);
@@ -39,7 +56,7 @@ ft_printf("-\n");
 
 
 //	#include "./test_somme_errors.c"
-//	#include "./test_d_int_main.c" //ok
+	#include "./test_d_int_main.c" //ok
 //	#include "./test_i_int_main.c" //ok
 //	#include "./test_u_int_main.c" //ok
 //	#include "./test_x_int_main.c" //ok

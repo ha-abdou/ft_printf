@@ -15,7 +15,7 @@ static char	*handle_o(char *str, t_bundle *bundle, int *i)
 	{
 		if (!(tmp = ft_strjoin("0", str)))
 			throw(0, EXIT_FAILURE);
-//		free(str);
+		free(str);
 	}
 	return (tmp);
 }
@@ -31,7 +31,7 @@ char		*handler_flag_hashtag(char *str, t_bundle *bundle, int *i)
 	{
 		if (!(tmp = ft_strjoin(str, ".")))
 			throw(0, EXIT_FAILURE);
-//		free(str);
+		free(str);
 		return (tmp);
 	}
 	if (bundle->sub_specifiers->specifier == 'o')

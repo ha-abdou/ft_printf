@@ -38,8 +38,7 @@ int				ft_printf(const char *format, ...)
 		else
 		{
 			bundle->cpy2buffer(bundle, (char *)bundle->format + i, bundle->i - i);
-			if (!bundle->format_handler(bundle))
-				return (-1);
+			bundle->format_handler(bundle);
 			i = bundle->i;
 		}
 	}
