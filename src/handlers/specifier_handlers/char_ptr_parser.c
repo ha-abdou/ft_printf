@@ -64,5 +64,5 @@ void			char_ptr_parser(void *self)
 	else
 		_handle_width(bundle, str, len);
 	if (to_free)
-		free(str);
+//		free(str);
 }

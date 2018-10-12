@@ -44,5 +44,5 @@ void			char_parser(void *self)
 		wchar_print(bundle, str, 1);
 	else if (bundle->sub_specifiers->width > 1)
 		_handle_width(bundle, str);
-	free(str);
+//	free(str);
 }

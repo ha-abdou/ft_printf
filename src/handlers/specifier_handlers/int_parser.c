@@ -28,5 +28,5 @@ void			int_parser(void *self)
 		remove_flags(bundle->sub_specifiers->flag, ' ');
 	number = generique_flag_handler(bundle, number, i);
 	bundle->cpy2buffer(bundle, number, ft_strlen(number));
-	free(number);
+//	free(number);
 }

@@ -27,6 +27,6 @@ void		unsigned_int_parser(void *self)
 	number = generique_flag_handler(bundle, number, i);
 	number = int_precision_handler(bundle, number, i);
 	bundle->cpy2buffer(bundle, number, ft_strlen(number));
-	free(number);
+//	free(number);
 }
  
