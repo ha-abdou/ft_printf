@@ -35,6 +35,8 @@ int				ft_printf(const char *format, ...)
 	{
 		if (bundle->current_char(bundle) != '%')
 			bundle->i++;
+		else if (!bundle->format[bundle->i + 1])
+			break;
 		else
 		{
 			bundle->cpy2buffer(bundle, (char *)bundle->format + i, bundle->i - i);

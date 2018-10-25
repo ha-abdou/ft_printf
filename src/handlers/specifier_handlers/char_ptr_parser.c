@@ -28,6 +28,8 @@ static void		_handle_width(t_bundle *bundle, wchar_t *str, int len)
 
 static wchar_t		*_oof(t_bundle *bundle, wchar_t *str, int *len)
 {
+	if (!str)
+		bundle->sub_specifiers->length[0] = '\0';
 	if (!str && (bundle->sub_specifiers->precision > 5
 		|| bundle->sub_specifiers->precision == -1))
 		return ((wchar_t*)ft_strcpy(ft_strnew(6), "(null)"));

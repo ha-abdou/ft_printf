@@ -16,8 +16,19 @@ int main()
 	string[1] = 1823;
 	string[2] = 984;
 */
-	   if (!setlocale(LC_ALL, ""))
+	if (!setlocale(LC_ALL, "en_US.UTF-8"))
     	printf("Echec setlocal\n");
+    
+
+
+    int	i =    printf("%05.1u %3.4hu %-4.7U", 45, (unsigned short)-1789, 147);
+    printf("\n");
+	int	j = ft_printf("%05.1u %3.4hu %-4.7U", 45, (unsigned short)-1789, 147);
+    printf("\n");
+
+	printf("%d, %d\n", i, j);
+
+
 /*
 	wchar_t		str[] = L"ݗݜशব";
 
@@ -56,7 +67,7 @@ ft_printf("-\n");
 
 
 //	#include "./test_somme_errors.c"
-	#include "./test_d_int_main.c" //ok
+//	#include "./test_d_int_main.c" //ok
 //	#include "./test_i_int_main.c" //ok
 //	#include "./test_u_int_main.c" //ok
 //	#include "./test_x_int_main.c" //ok

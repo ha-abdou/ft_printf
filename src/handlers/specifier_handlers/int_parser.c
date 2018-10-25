@@ -18,8 +18,8 @@ void			int_parser(void *self)
 		negativ = 1;
 	number = int_precision_handler(bundle, number, i);
 	i = ft_strlen(number);
-	if (ft_strchr(bundle->sub_specifiers->flag, ' '))
-		i++;
+/*	if (ft_strchr(bundle->sub_specifiers->flag, ' '))
+		i++;*/
 	number = width_handler(bundle, number);
 	remove_flags(bundle->sub_specifiers->flag, '#');
 	if (bundle->sub_specifiers->precision > 0)

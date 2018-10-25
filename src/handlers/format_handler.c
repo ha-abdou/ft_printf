@@ -12,7 +12,7 @@ void		format_handler(t_bundle *self)
 	{
 		get_sub_specifiers(self);
 		none_parser((void *)self);
-		return (1);
+		return ;
 	}
 	while (handlers)
 	{

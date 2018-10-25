@@ -70,6 +70,7 @@ char					*handler_flag_zero(char *str);
 char					current_char(t_bundle *self);
 void					char_ptr_parser(void *self);
 void					throw(char *msg, int code);
+char					*wchar2char(wchar_t *str, int p);
 void					none_parser(void *self);
 void					char_parser(void *self);
 void					int_parser(void *self);

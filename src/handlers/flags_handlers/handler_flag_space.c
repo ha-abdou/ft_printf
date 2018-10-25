@@ -5,15 +5,16 @@
 
 char		*handler_flag_space(t_bundle *bundle, char *str, int *i)
 {
- 	if (bundle->sub_specifiers->width && str[bundle->sub_specifiers->width - *i] != '-')
-	{
-		str[bundle->sub_specifiers->width - *i - 1] = ' ';
-		(*i)++;
-	}
-	else
+	if (bundle->sub_specifiers->width <= *i)
 	{
 		if (!(str =  ft_strjoin(" ", str)))
 			throw(0, EXIT_FAILURE);
 	}
+	else
+	{
+		str[0] = ' ';
+		(*i)++;
+	}
+	
 	return (str);
 }

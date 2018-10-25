@@ -25,7 +25,12 @@ wchar_t			*char_length_modifier_handler(t_bundle *bundle)
 	{
 		if (bundle->sub_specifiers->length[0]\
 			&& ft_strcmp(bundle->sub_specifiers->length ,"l") == 0)
+		{
 			str = (wchar_t*)va_arg(*(bundle->var_list), wchar_t*);
+			if (str)
+				str = (wchar_t*)wchar2char(str, bundle->sub_specifiers->precision);
+			bundle->sub_specifiers->length[0] = '\0';
+		}
 		else
 			str = (wchar_t*)va_arg(*(bundle->var_list), char*);
 	}
