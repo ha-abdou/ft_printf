@@ -4,6 +4,21 @@
 	printf("\n");
 
 
+	   if (printf("%C\n", 126) !=
+	ft_printf("%C\n", 126))
+	   printf("no match:\n");
+	printf("\n");
+
+	   if (printf("%C\n", 65535) !=
+	   ft_printf("%C\n", 65535))
+	   printf("no match:\n");
+	   printf("\n");
+
+	   if (printf("%C\n", 1114111) !=
+	   ft_printf("%C\n", 1114111))
+	   printf("no match:\n");
+	   printf("\n");
+
 	   if (printf("%c\n", 0) !=
 	ft_printf("%c\n", 0))
 	   	printf("no match:\n");

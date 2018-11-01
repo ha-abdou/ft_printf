@@ -20,17 +20,9 @@ static void		free_bundle(t_bundle *bundle)
 	free(bundle);
 }
 
-int				ft_printf(const char *format, ...)
+static void		_handler(t_bundle *bundle, int *i)
 {
-	t_bundle	*bundle;
-	va_list		var_list;
-	int			i;
-
-	if (!format)
-		return (-1);
-	va_start(var_list, format);
-	bundle = init_bundle(format, &var_list);
-	i = bundle->i;
+	*i = bundle->i;
 	while (bundle->current_char(bundle))
 	{
 		if (bundle->current_char(bundle) != '%')
@@ -39,13 +31,28 @@ int				ft_printf(const char *format, ...)
 			break;
 		else
 		{
-			bundle->cpy2buffer(bundle, (char *)bundle->format + i, bundle->i - i);
+			bundle->cpy2buffer(bundle,\
+				(char*)bundle->format + *i, bundle->i - *i);
 			bundle->format_handler(bundle);
-			i = bundle->i;
+			*i = bundle->i;
 		}
 	}
-	if (i != bundle->i)
-		bundle->cpy2buffer(bundle, (char *)bundle->format + i, bundle->i - i);
+	if (*i != bundle->i)
+		bundle->cpy2buffer(bundle,\
+			(char *)bundle->format + *i, bundle->i - *i);
+}
+
+int				ft_printf(const char *format, ...)
+{
+	t_bundle	*bundle;
+	int			i;
+	va_list		var_list;
+
+	if (!format)
+		return (-1);
+	va_start(var_list, format);
+	bundle = init_bundle(format, &var_list);
+	_handler(bundle, &i);
 	va_end(var_list);
 	bundle->print_buffer(bundle, 1);
 	i = bundle->printed_length;

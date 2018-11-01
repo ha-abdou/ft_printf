@@ -52,12 +52,15 @@ void			char_ptr_parser(void *self)
 	int					len;
 	int					to_free;
 
+	to_free = 0;
 	bundle = (t_bundle *)self;
 	if (bundle->sub_specifiers->specifier == 'S')
 		ft_strcpy(bundle->sub_specifiers->length, "l");
+	if (ft_strcmp(bundle->sub_specifiers->length ,"l") == 0)
+		to_free = 1;
 	str = char_length_modifier_handler(bundle);
 	len = 6;
-	to_free = 0;
+
 	if (!str)
 		to_free = 1;
 	str = _oof(bundle, str, &len);
@@ -65,6 +68,6 @@ void			char_ptr_parser(void *self)
 		wstr_print(bundle, str, len);
 	else
 		_handle_width(bundle, str, len);
-//	if (to_free)
-//		free(str);
+	if (to_free)
+		free(str);
 }

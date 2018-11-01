@@ -271,7 +271,7 @@ OBJ = $(SRC:%.c=%.o)
 UNIT_DIR = framework
 UNIT = $(UNIT_DIR)/libunit.a
 
-PROJ = libftprintf.a
+PROJ = ../../libftprintf.a
 
 INCL_FLAG = -I includes  -I $(UNIT_DIR)/includes
 LIB_FLAG = -L. -lftprintf -L$(UNIT_DIR) -lunit

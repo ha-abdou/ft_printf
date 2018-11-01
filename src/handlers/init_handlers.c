@@ -1,7 +1,8 @@
 #include "ft_printf.h"
 #include <stdlib.h>
 
-static void	handlers_push(t_bundle *self, char specifier, void (*parser)(void *))
+static void	handlers_push(t_bundle *self, char specifier,\
+	void (*parser)(void *))
 {
 	t_handlers	*tmp;
 
@@ -14,7 +15,7 @@ static void	handlers_push(t_bundle *self, char specifier, void (*parser)(void *)
 }
 
 void		init_handlers(t_bundle *self)
-{	//todo SC
+{
 	self->handlers = 0;
 	handlers_push(self, 's', &char_ptr_parser);
 	handlers_push(self, 'S', &char_ptr_parser);

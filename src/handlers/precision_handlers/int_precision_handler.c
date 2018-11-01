@@ -38,7 +38,9 @@ char		*int_precision_handler(t_bundle *bundle, char *number, int n)
 	i = 0;
 	while (number[i] && number[i] == ' ')
 		i++;
-	if (number[i] == '0' && bundle->sub_specifiers->precision == 0 && (!ft_strchr(bundle->sub_specifiers->flag, '#') || bundle->sub_specifiers->specifier != 'o'))
+	if (number[i] == '0' && bundle->sub_specifiers->precision == 0 &&\
+		(!ft_strchr(bundle->sub_specifiers->flag, '#') ||\
+			bundle->sub_specifiers->specifier != 'o'))
 	{
 		if (i == 0)
 			number[i] = '\0';

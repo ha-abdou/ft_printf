@@ -3,7 +3,7 @@
 
 void		percentage_parser(void *self)
 {
-	t_bundle			*bundle;
+	t_bundle	*bundle;
 
 	bundle = (t_bundle *)self;
 	bundle->sub_specifiers->specifier = 'c';

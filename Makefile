@@ -97,14 +97,14 @@ mytest: $(NAME)
 	./run
 
 mytestleaks: $(NAME)
-	$(CC) $(FLAGS) -c test/mytest/main.c
+	$(CC) $(FLAGS) -c test/mytest/leaks/main.c
 	$(CC) -o run main.o libftprintf.a
-	valgrind -v --leak-check=full --track-origins=yes ./run
+	valgrind -v  ./run
 
 minitestleaks: $(NAME)
 	$(CC) $(FLAGS) -c test/test_int_main.c
 	$(CC) -o run test_int_main.o libftprintf.a
-	valgrind --leak-check=full ./run
+	valgrind --leak-check=full --track-origins=yes ./run
 
 test: all
 	mv $(NAME) test/$(NAME)

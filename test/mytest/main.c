@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <inttypes.h>
+#include "ft_printf.h"
 
 //"1234567%mmmmezzzzd\n"
 int main()
@@ -16,7 +17,10 @@ int main()
 	string[1] = 1823;
 	string[2] = 984;
 */
-	if (!setlocale(LC_ALL, "en_US.UTF-8"))
+	   printf("%lld\n", (long long int)0xff11ff11ff88);
+
+	ft_printf("%lld\n", 0xff11ff11ff88);
+/*	if (!setlocale(LC_ALL, "en_US.UTF-8"))
     	printf("Echec setlocal\n");
     
 
@@ -27,7 +31,7 @@ int main()
     printf("\n");
 
 	printf("%d, %d\n", i, j);
-
+*/
 
 /*
 	wchar_t		str[] = L"ݗݜशব";

@@ -32,17 +32,17 @@ void			char_parser(void *self)
 	bundle = (t_bundle *)self;
 	if (bundle->sub_specifiers->specifier == 'C')
 		ft_strcpy(bundle->sub_specifiers->length,"l");
-	if (bundle->sub_specifiers->specifier != 'c' && bundle->sub_specifiers->specifier != 'C')
+	if (bundle->sub_specifiers->specifier != 'c' &&\
+		bundle->sub_specifiers->specifier != 'C')
 	{
 		str = ft_strnew(2);
 		str[0] = bundle->sub_specifiers->specifier;
 	}
 	else 
 		str = char_length_modifier_handler(bundle);
-
 	if (bundle->sub_specifiers->width <= 1)
 		wchar_print(bundle, str, 1);
 	else if (bundle->sub_specifiers->width > 1)
 		_handle_width(bundle, str);
-//	free(str);
+	free(str);
 }

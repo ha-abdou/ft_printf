@@ -2,7 +2,6 @@
 #include "libft.h"
 #include <stdlib.h>
 
-
 void			none_parser(void *self)
 {
 	t_bundle			*bundle;

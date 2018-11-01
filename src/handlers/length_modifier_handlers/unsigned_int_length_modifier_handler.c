@@ -19,7 +19,8 @@ char		*unsigned_int_length_handler(t_bundle *bundle)
 	uintmax_t i;
 
 	i = 0;
-	if (bundle->sub_specifiers->specifier == 'p' && !bundle->sub_specifiers->length[0])
+	if (bundle->sub_specifiers->specifier == 'p' &&\
+		!bundle->sub_specifiers->length[0])
 		i = (long unsigned int)va_arg(*(bundle->var_list), void *);
 	else if (!bundle->sub_specifiers->length[0])
 		i = (unsigned int)va_arg(*(bundle->var_list), unsigned int);

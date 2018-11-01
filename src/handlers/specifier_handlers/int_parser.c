@@ -18,8 +18,6 @@ void			int_parser(void *self)
 		negativ = 1;
 	number = int_precision_handler(bundle, number, i);
 	i = ft_strlen(number);
-/*	if (ft_strchr(bundle->sub_specifiers->flag, ' '))
-		i++;*/
 	number = width_handler(bundle, number);
 	remove_flags(bundle->sub_specifiers->flag, '#');
 	if (bundle->sub_specifiers->precision > 0)
@@ -28,5 +26,5 @@ void			int_parser(void *self)
 		remove_flags(bundle->sub_specifiers->flag, ' ');
 	number = generique_flag_handler(bundle, number, i);
 	bundle->cpy2buffer(bundle, number, ft_strlen(number));
-//	free(number);
+	free(number);
 }

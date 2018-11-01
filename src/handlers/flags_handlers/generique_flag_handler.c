@@ -1,11 +1,8 @@
 #include "ft_printf.h"
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 char		*generique_flag_handler(t_bundle *bundle, char *str, int i)
 {
-
 	if (ft_strchr(bundle->sub_specifiers->flag, '#'))
 		str = handler_flag_hashtag(str, bundle, &i);
 	if (ft_strchr(bundle->sub_specifiers->flag, '-')
