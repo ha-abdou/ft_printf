@@ -17,9 +17,11 @@ int main()
 	string[1] = 1823;
 	string[2] = 984;
 */
-	   printf("%lld\n", (long long int)0xff11ff11ff88);
+	if (!setlocale(LC_ALL, ""))
+    	printf("Echec setlocal\n");
 
-	ft_printf("%lld\n", 0xff11ff11ff88);
+	   printf("test %-7C!\n", 0xd777);
+	ft_printf("test %-7C!\n", 0xd777);
 /*	if (!setlocale(LC_ALL, "en_US.UTF-8"))
     	printf("Echec setlocal\n");
     

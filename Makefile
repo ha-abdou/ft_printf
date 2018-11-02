@@ -87,9 +87,9 @@ minitest: $(NAME)
 	./run
 
 curqui_test: $(NAME)
-	mv $(NAME) test/curqui_test
-	make -C test/curqui_test
-	./ft_printf_tests
+	make
+	cp $(NAME) curqui_test
+	./curqui_test/ft_printf_tests
 
 mytest: $(NAME)
 	$(CC) $(FLAGS) -c test/mytest/main.c
