@@ -65,12 +65,10 @@ static char	*_2char(wchar_t *str, char *n_str, int p)
 char	*wchar2char(wchar_t *str, int precision)
 {
 	char	*n_str;
-	int		i;
 
-	i = 0;
 	if (!str)
 		return (0);
 	n_str = ft_strnew(_get_len(str));
-	n_str = _2char(str, n_str, precision);
+	n_str = _2char(str, n_str, precision);	
 	return (n_str);
 }

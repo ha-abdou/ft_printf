@@ -47,7 +47,7 @@ char					*hashtag_for_hexa(t_bundle *bundle, char *str, int *i);
 void					wchar_print(t_bundle *bundle, wchar_t *str, int len);
 void					wstr_print(t_bundle *bundle, wchar_t *str, int len);
 t_bundle				*init_bundle(const char *format, va_list *var_list);
-wchar_t					*char_length_modifier_handler(t_bundle *bundle);
+char					*char_length_modifier_handler(t_bundle *bundle);
 char					*unsigned_int_length_handler(t_bundle *bundle);
 char					*int_length_modifier_handler(t_bundle *bundle);
 void					cpy2buffer(t_bundle *self, char *str, int len);

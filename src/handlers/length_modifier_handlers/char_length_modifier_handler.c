@@ -20,24 +20,37 @@ static char 	*handle_s(t_bundle *bundle)
 	return (str);
 }
 
-wchar_t			*char_length_modifier_handler(t_bundle *bundle)
+static char		*handle_c(t_bundle *bundle)
 {
-	wchar_t		*str;
+	wchar_t		*tmp;
+	char		*str;
 
 	str = 0;
+	if (bundle->sub_specifiers->specifier == 'C' ||
+		(ft_strcmp(bundle->sub_specifiers->length ,"l") == 0))
+	{
+		if (!(tmp = (wchar_t *)malloc(sizeof(wchar_t) * 2)))
+			return (0);
+		tmp[0] = va_arg(*(bundle->var_list), wchar_t);
+		tmp[1] = '\0';
+		str = wchar2char(tmp, 10);
+		free(tmp);
+	}
+	else
+	{
+		str = ft_strnew(2);
+		str[0] = (char)va_arg(*(bundle->var_list), int);
+	}
+	return (str);
+}
+
+char			*char_length_modifier_handler(t_bundle *bundle)
+{
 	if (bundle->sub_specifiers->specifier == 'c'\
 		|| bundle->sub_specifiers->specifier == 'C')
-	{
-		str = (wchar_t *)malloc(sizeof(wchar_t) * 2);
-		str[1] = '\0';
-		if (bundle->sub_specifiers->length\
-			&& ft_strcmp(bundle->sub_specifiers->length ,"l") == 0)
-			str[0] = (wchar_t)va_arg(*(bundle->var_list), wchar_t);
-		else
-			str[0] = (char)va_arg(*(bundle->var_list), wchar_t);
-	}
+		return (handle_c(bundle));
 	else if (bundle->sub_specifiers->specifier == 's'\
 		|| bundle->sub_specifiers->specifier == 'S')
-		return ((wchar_t *)handle_s(bundle));
-	return (str);
+		return (handle_s(bundle));
+	return (0);
 }

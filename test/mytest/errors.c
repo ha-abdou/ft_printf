@@ -1,7 +1,7 @@
 if (!setlocale(LC_ALL, ""))
     printf("Echec setlocal\n");
 /*S*/
-/*
+
 wchar_t	s[4];
 s[0] = 0x53;
 s[1] = 0x3abc;
@@ -117,4 +117,86 @@ if (ft_printf("test %-7C %007d%-10.2ls!!\n", 0xd777, 0x45, L"ã€»") !=
 	   printf("test %-7C %007d%-10.2ls!!\n", 0xd777, 0x45, L"ã€»"))
 	   	ft_printf("no match:\n");
 	ft_printf("\n");
-*/
+
+
+if (ft_printf("+%C+\n", 0x11ffff) !=
+	   printf("-%C-\n", 0x11ffff))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+	
+
+if (ft_printf("+%C+\n", (wint_t)-2) !=
+	   printf("-%C-\n", (wint_t)-2))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+%C+\n", 0xd800) !=
+	   printf("-%C-\n", 0xd800))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+%C+\n", 0xdb02) !=
+	   printf("-%C-\n", 0xdb02))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+%C+\n", 0xdfff) !=
+	   printf("-%C-\n", 0xdfff))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+%C+\n", 0xbffe) !=
+	   printf("-%C-\n", 0xbffe))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+%lc+\n", 254) !=
+	   printf("-%lc-\n", 254))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+%C+\n", 256) !=
+	   printf("-%C-\n", 256))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+%5lc+\n", 350) !=
+	   printf("-%5lc-\n", 350))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+%5c+\n", 'a') !=
+	   printf("-%5c-\n", 'a'))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+%-8C+\n", 1350) !=
+	   printf("+%-8C+\n", 1350))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+%8C et coco %C titi %lc\n", 3250, 0x11ffff, 'a') !=
+	   printf("-%8C et coco %C titi %lc\n", 3250, 0x11ffff, 'a'))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+%---8C et coco %1C titi\n", 3250, 0xffff) !=
+	   printf("-%---8C et coco %1C titi\n", 3250, 0xffff))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+%6C et coco %C titi %C tyty\n", 3250, 0xd800, 'u') !=
+	   printf("-%6C et coco %C titi %C tyty\n", 3250, 0xd800, 'u'))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+yo%2C%-12lc et %C titi %C tyty\n", 'u', 254, 256, 'a') !=
+	   printf("+yo%2C%-12lc et %C titi %C tyty\n", 'u', 254, 256, 'a'))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+
+if (ft_printf("+test %-7C %007d%-10.2ls!!\n", 0xd777, 0x45, L"ã€»") !=
+	   printf("+test %-7C %007d%-10.2ls!!\n", 0xd777, 0x45, L"ã€»"))
+	   	ft_printf("no match:\n");
+	ft_printf("\n");
+	

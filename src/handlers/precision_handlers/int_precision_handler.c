@@ -31,7 +31,7 @@ static char	*add_zeros(int i, char *number)
 	return (str);
 }
 
-char		*int_precision_handler(t_bundle *bundle, char *number, int n)
+char		*int_precision_handler(t_bundle *bundle, char *number)
 {
 	int		i;
 
