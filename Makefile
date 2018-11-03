@@ -52,6 +52,7 @@ COBJ = src/handlers/length_modifier_handlers/unsigned_int_length_modifier_handle
 		src/handlers/init_handlers.o\
 		src/functions/ft_myputnbr.o\
 		src/functions/wchar_print.o\
+		src/functions/wchar2char.o\
 		src/functions/ft_imtoa.o\
 		src/bundle/init_bundle.o\
 		src/functions/throw.o\
