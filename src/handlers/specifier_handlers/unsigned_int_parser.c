@@ -3,6 +3,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+static void	_remove_flags(t_bundle *bundle, char *number, int isZero)
+{
+	if (bundle->sub_specifiers->specifier == 'u' ||
+		(ft_strchr("xX", bundle->sub_specifiers->specifier) && !number[0]))
+		remove_flags(bundle->sub_specifiers->flag, '#');
+	if (isZero && ft_strchr("xX", bundle->sub_specifiers->specifier))
+		remove_flags(bundle->sub_specifiers->flag, '#');
+	remove_flags(bundle->sub_specifiers->flag, '+');
+	remove_flags(bundle->sub_specifiers->flag, ' ');
+}
+
 void		unsigned_int_parser(void *self)
 {
 	t_bundle	*bundle;
@@ -24,13 +35,7 @@ void		unsigned_int_parser(void *self)
 	i = ft_strlen(number);
 	if (bundle->sub_specifiers->precision < bundle->sub_specifiers->width)
 		number = width_handler(bundle, number);
-	if (bundle->sub_specifiers->specifier == 'u' ||
-		(ft_strchr("xX", bundle->sub_specifiers->specifier) && !number[0]))
-		remove_flags(bundle->sub_specifiers->flag, '#');
-	if (isZero && ft_strchr("xX", bundle->sub_specifiers->specifier))
-		remove_flags(bundle->sub_specifiers->flag, '#');
-	remove_flags(bundle->sub_specifiers->flag, '+');
-	remove_flags(bundle->sub_specifiers->flag, ' ');
+	_remove_flags(bundle, number, isZero);
 	number = generique_flag_handler(bundle, number, i);
 	bundle->cpy2buffer(bundle, number, ft_strlen(number));
 	free(number);

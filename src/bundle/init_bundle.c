@@ -39,13 +39,13 @@ static void		init_mem(t_bundle *bundle)
 {
 	if (!(bundle->sub_specifiers =\
 		(t_sub_specifiers *)malloc(sizeof(t_sub_specifiers))))
-		throw(0, EXIT_FAILURE);
+		throw(0, EXIT_FAIL);
 	if (!(bundle->sub_specifiers->flag = ft_strnew(5)))
-		throw(0, EXIT_FAILURE);
+		throw(0, EXIT_FAIL);
 	if (!(bundle->sub_specifiers->length = ft_strnew(2)))
-		throw(0, EXIT_FAILURE);
+		throw(0, EXIT_FAIL);
 	if (!(bundle->buffer = ft_strnew(BUFFERSIZE)))
-		throw(0, EXIT_FAILURE);
+		throw(0, EXIT_FAIL);
 }
 
 t_bundle		*init_bundle(const char *format, va_list *var_list)
@@ -53,7 +53,7 @@ t_bundle		*init_bundle(const char *format, va_list *var_list)
 	t_bundle	*bundle;
 
 	if (!(bundle = (t_bundle *)malloc(sizeof(t_bundle))))
-		throw(0, EXIT_FAILURE);
+		throw(0, EXIT_FAIL);
 	bundle->i = 0;
 	bundle->buffer_length = 0;
 	bundle->printed_length = 0;

@@ -15,7 +15,6 @@ char		*handler_flag_plus(t_bundle *bundle, char *str, int *i)
 		n++;
 	if (str[n] == '-')
 		return (str);
-	//if (bundle->sub_specifiers->width > *i && bundle->sub_specifiers->precision && str[0] == '0')
 	if (bundle->sub_specifiers->width > *i)
 	{
 		if (bundle->sub_specifiers->precision >= *i)
@@ -84,64 +83,5 @@ char		*handler_flag_plus(t_bundle *bundle, char *str, int *i)
 		str[bundle->sub_specifiers->width - (*i) - 1] = '+';
 		(*i)++;
 	}
-/*
-	if (bundle->sub_specifiers->width <= *i && str[0] != '-')
-	{
-		if (!(tmp = ft_strjoin("+", str)))
-			throw(0, EXIT_FAILURE);
-		free(str);
-		(*i)++;
-		return (tmp);
-	}
-	else if (bundle->sub_specifiers->width >= *i && str[0] != '-')
-	{
-		n = 0;
-		while (str[n] == ' ')
-			n++;
-		str[n] = '+';
-		(*i)++;
-		return (str);
-	}
-	else if (bundle->sub_specifiers->width &&
-		str[bundle->sub_specifiers->width - (*i)] != '-')
-	{
-		str[bundle->sub_specifiers->width - (*i) - 1] = '+';
-		(*i)++;
-	}*/
 	return (str);
 }
-
-
-/*char		*handler_flag_plus(t_bundle *bundle, char *str, int *i)
-{
-	char	*tmp;
-	int		n;
-
-	if (str[0] == '-')
-		return (str);
-	if (bundle->sub_specifiers->width <= *i && str[0] != '-')
-	{
-		if (!(tmp = ft_strjoin("+", str)))
-			throw(0, EXIT_FAILURE);
-		free(str);
-		(*i)++;
-		return (tmp);
-	}
-	else if (bundle->sub_specifiers->width >= *i && str[0] != '-')
-	{
-		n = 0;
-		while (str[n] == ' ')
-			n++;
-		str[n] = '+';
-		(*i)++;
-		return (str);
-	}
-	else if (bundle->sub_specifiers->width &&
-		str[bundle->sub_specifiers->width - (*i)] != '-')
-	{
-		str[bundle->sub_specifiers->width - (*i) - 1] = '+';
-		(*i)++;
-	}
-	return (str);
-}
-*/

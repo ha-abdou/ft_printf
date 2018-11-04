@@ -3,6 +3,7 @@
 # define SPECIFIERS "dDOUiuXxopcCsS%bBnvr"
 # define FLAGS " -+#0"
 # define BUFFERSIZE 4096
+# define EXIT_FAIL -1
 # include <stdarg.h>
 # include <inttypes.h>
 # include <wchar.h>
@@ -22,7 +23,7 @@ typedef struct s_handlers
 } t_handlers;
 typedef struct s_bundle
 {
-	void				(*cpy2buffer)(struct s_bundle *self, char *str, int len);
+	void				(*cpy2buffer)(struct s_bundle *s, char *str, int len);
 	void				(*print_buffer)(struct s_bundle *self, int fd);
 	void				(*format_handler)(struct s_bundle *self);
 	char				(*current_char)(struct s_bundle *self);
@@ -38,15 +39,15 @@ typedef struct s_bundle
 	char				*buffer;
 	int					i;
 } t_bundle;
-char					*generique_flag_handler(t_bundle *bundle, char *str, int i);
-char					*handler_flag_hashtag(char *str, t_bundle *bundle, int *i);
-char					*handler_flag_space(t_bundle *bundle, char *str, int *i);
-char					*handler_flag_plus(t_bundle *bundle, char *str, int *i);
 char					*int_precision_handler(t_bundle *bundle, char *number);
 char					*hashtag_for_hexa(t_bundle *bundle, char *str, int *i);
+char					*generique_flag_handler(t_bundle *b, char *str, int i);
+char					*handler_flag_hashtag(char *str, t_bundle *b, int *i);
 void					wchar_print(t_bundle *bundle, wchar_t *str, int len);
 void					wstr_print(t_bundle *bundle, wchar_t *str, int len);
+char					*handler_flag_space(t_bundle *b, char *str, int *i);
 t_bundle				*init_bundle(const char *format, va_list *var_list);
+char					*handler_flag_plus(t_bundle *b, char *str, int *i);
 char					*char_length_modifier_handler(t_bundle *bundle);
 char					*unsigned_int_length_handler(t_bundle *bundle);
 char					*int_length_modifier_handler(t_bundle *bundle);
