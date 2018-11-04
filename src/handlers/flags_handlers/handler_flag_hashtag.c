@@ -20,7 +20,7 @@ static char	*handle_o(char *str, t_bundle *bundle, int *i)
 	return (tmp);
 }
 
-static char	*handle_x(char *str, t_bundle *bundle)
+static char	*handle_x(char *str)
 {
 //	char	*tmp;
 	int		n;
@@ -45,7 +45,7 @@ static char	*handle_x(char *str, t_bundle *bundle)
 	return (str);
 }
 
-static char	*handle_X(char *str, t_bundle *bundle)
+static char	*handle_X(char *str)
 {
 //	char	*tmp;
 	int		n;
@@ -76,10 +76,10 @@ char		*handler_flag_hashtag(char *str, t_bundle *bundle, int *i)
 
 	if (bundle->sub_specifiers->precision > 0 &&\
 	bundle->sub_specifiers->specifier == 'x')
-		return (handle_x(str, bundle));
+		return (handle_x(str));
 		if (bundle->sub_specifiers->precision > 0 &&\
 	bundle->sub_specifiers->specifier == 'X')
-		return (handle_X(str, bundle));
+		return (handle_X(str));
 	if (check_for_zero(bundle, str))
 		return (str);
 	if (bundle->sub_specifiers->specifier == 'f'\

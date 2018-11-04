@@ -5,12 +5,13 @@
 #include <unistd.h>
 #include <wchar.h>
 
-static void		_handle_width(t_bundle *bundle, wchar_t *str, int len)
+static void		_handle_width(t_bundle *bundle, char *str, int len)
 {
 	char	*tmp;
 
 	if (ft_strchr(bundle->sub_specifiers->flag, '-'))
-		wstr_print(bundle, str, len);
+		bundle->cpy2buffer(bundle, str, len);
+	//wstr_print(bundle, str, len);
 	if (bundle->sub_specifiers->width > len)
 	{
 		tmp = ft_strnew(bundle->sub_specifiers->width);
@@ -23,20 +24,21 @@ static void		_handle_width(t_bundle *bundle, wchar_t *str, int len)
 		free(tmp);
 	}
 	if (!ft_strchr(bundle->sub_specifiers->flag, '-'))
-		wstr_print(bundle, str, len);
+		bundle->cpy2buffer(bundle, str, len);
+	//wstr_print(bundle, str, len);
 }
 
-static wchar_t		*_oof(t_bundle *bundle, wchar_t *str, int *len)
+static char		*_oof(t_bundle *bundle, char *str, int *len)
 {
 	if (!str)
 		bundle->sub_specifiers->length[0] = '\0';
 	if (!str && (bundle->sub_specifiers->precision > 5
 		|| bundle->sub_specifiers->precision == -1))
-		return ((wchar_t*)ft_strcpy(ft_strnew(6), "(null)"));
+		return (ft_strcpy(ft_strnew(6), "(null)"));
 	else if (!str && bundle->sub_specifiers->precision <= 5)
 	{
 		*len = bundle->sub_specifiers->precision;
-		return ((wchar_t*)ft_strncpy(ft_strnew(6),
+		return (ft_strncpy(ft_strnew(6),
 			"(null)", bundle->sub_specifiers->precision));
 	}
 	else if ((*len = ft_strlen((char*)str)) > bundle->sub_specifiers->precision
@@ -48,7 +50,7 @@ static wchar_t		*_oof(t_bundle *bundle, wchar_t *str, int *len)
 void			char_ptr_parser(void *self)
 {
 	t_bundle			*bundle;
-	wchar_t				*str;
+	char				*str;
 	int					len;
 	int					to_free;
 
@@ -65,7 +67,8 @@ void			char_ptr_parser(void *self)
 		to_free = 1;
 	str = _oof(bundle, str, &len);
 	if (bundle->sub_specifiers->width <= len)
-		wstr_print(bundle, str, len);
+		bundle->cpy2buffer(bundle, str, len);
+	//wstr_print(bundle, str, len);
 	else
 		_handle_width(bundle, str, len);
 	if (to_free)

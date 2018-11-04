@@ -10,12 +10,6 @@ int		get_specifier_index(t_bundle *self)
 	{
 		if (!ft_strchr(" #-+hlzj.*0123456789\n", self->format[self->i + i]))
 			return (self->i + i);
-		/*
-		if (ft_strchr(SPECIFIERS, self->format[self->i + i]))
-		{
-			//printf("--->%c,\n", self->format[self->i + i]);
-			return (self->i + i);
-		}*/
 		i++;
 	}
 	return (0);

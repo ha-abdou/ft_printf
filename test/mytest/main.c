@@ -20,7 +20,10 @@ int main()
 	if (!setlocale(LC_ALL, ""))
     	printf("Echec setlocal\n");
 
-	#include "./errors.c"
+    ft_printf("%lld\n", -9223372036854775808);
+       printf("%lld\n", -9223372036854775808);
+
+//	#include "./errors.c"
 /*	if (!setlocale(LC_ALL, "en_US.UTF-8"))
     	printf("Echec setlocal\n");
     

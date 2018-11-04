@@ -23,7 +23,7 @@ void		ptr_parser(void *self)
 	remove_flags(bundle->sub_specifiers->flag, '#');
 	remove_flags(bundle->sub_specifiers->flag, '+');
 	remove_flags(bundle->sub_specifiers->flag, ' ');
-	number = int_precision_handler(bundle, number, 0);
+	number = int_precision_handler(bundle, number);
 	number = add_x0(number);
 	i = ft_strlen(number);
 	number = width_handler(bundle, number);

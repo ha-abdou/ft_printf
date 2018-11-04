@@ -41,9 +41,7 @@ COBJ = src/handlers/length_modifier_handlers/unsigned_int_length_modifier_handle
 		src/handlers/specifier_handlers/v_parser.o\
 		src/handlers/specifier_handlers/r_parser.o\
 		src/handlers/specifier_handlers/n_parser.o\
-		src/errors_handlers/specifier_error.o\
 		src/functions/get_specifier_index.o\
-		src/errors_handlers/format_error.o\
 		src/functions/get_sub_specifiers.o\
 		src/functions/ft_uimtoa_base.o\
 		src/functions/check_for_zero.o\

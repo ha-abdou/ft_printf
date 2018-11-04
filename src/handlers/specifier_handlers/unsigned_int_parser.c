@@ -20,7 +20,7 @@ void		unsigned_int_parser(void *self)
 	isZero = 0;
 	if (number[0] == '0')
 		isZero = 1;
-	number = int_precision_handler(bundle, number, i);
+	number = int_precision_handler(bundle, number);
 	i = ft_strlen(number);
 	if (bundle->sub_specifiers->precision < bundle->sub_specifiers->width)
 		number = width_handler(bundle, number);
